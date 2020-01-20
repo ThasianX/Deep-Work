@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9423D65AB600258814 /* AppDelegate.swift */; };
+		1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9623D65AB600258814 /* SceneDelegate.swift */; };
+		1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */; };
+		1EDB3C9C23D65AB600258814 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9B23D65AB600258814 /* ContentView.swift */; };
+		1EDB3C9E23D65AB600258814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9D23D65AB600258814 /* Assets.xcassets */; };
+		1EDB3CA123D65AB600258814 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EDB3CA023D65AB600258814 /* Preview Assets.xcassets */; };
+		1EDB3CA423D65AB600258814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */; };
+		1EDB3CAF23D65AB600258814 /* Deep_Work_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CAE23D65AB600258814 /* Deep_Work_AppTests.swift */; };
+		1EDB3CBA23D65AB600258814 /* Deep_Work_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CB923D65AB600258814 /* Deep_Work_AppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1EDB3CAB23D65AB600258814 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1EDB3C8923D65AB600258814 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EDB3C9023D65AB600258814;
+			remoteInfo = "Deep Work App";
+		};
+		1EDB3CB623D65AB600258814 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1EDB3C8923D65AB600258814 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EDB3C9023D65AB600258814;
+			remoteInfo = "Deep Work App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1EDB3C9123D65AB600258814 /* Deep Work App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Work App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EDB3C9423D65AB600258814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1EDB3C9623D65AB600258814 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1EDB3C9923D65AB600258814 /* Deep_Work_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deep_Work_App.xcdatamodel; sourceTree = "<group>"; };
+		1EDB3C9B23D65AB600258814 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1EDB3C9D23D65AB600258814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1EDB3CA023D65AB600258814 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1EDB3CA323D65AB600258814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1EDB3CA523D65AB600258814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EDB3CAA23D65AB600258814 /* Deep Work AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deep Work AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EDB3CAE23D65AB600258814 /* Deep_Work_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deep_Work_AppTests.swift; sourceTree = "<group>"; };
+		1EDB3CB023D65AB600258814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EDB3CB523D65AB600258814 /* Deep Work AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deep Work AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EDB3CB923D65AB600258814 /* Deep_Work_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deep_Work_AppUITests.swift; sourceTree = "<group>"; };
+		1EDB3CBB23D65AB600258814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EDB3C8E23D65AB600258814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CA723D65AB600258814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CB223D65AB600258814 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1EDB3C8823D65AB600258814 = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9323D65AB600258814 /* Deep Work App */,
+				1EDB3CAD23D65AB600258814 /* Deep Work AppTests */,
+				1EDB3CB823D65AB600258814 /* Deep Work AppUITests */,
+				1EDB3C9223D65AB600258814 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1EDB3C9223D65AB600258814 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9123D65AB600258814 /* Deep Work App.app */,
+				1EDB3CAA23D65AB600258814 /* Deep Work AppTests.xctest */,
+				1EDB3CB523D65AB600258814 /* Deep Work AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1EDB3C9323D65AB600258814 /* Deep Work App */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9423D65AB600258814 /* AppDelegate.swift */,
+				1EDB3C9623D65AB600258814 /* SceneDelegate.swift */,
+				1EDB3C9B23D65AB600258814 /* ContentView.swift */,
+				1EDB3C9D23D65AB600258814 /* Assets.xcassets */,
+				1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */,
+				1EDB3CA523D65AB600258814 /* Info.plist */,
+				1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */,
+				1EDB3C9F23D65AB600258814 /* Preview Content */,
+			);
+			path = "Deep Work App";
+			sourceTree = "<group>";
+		};
+		1EDB3C9F23D65AB600258814 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3CA023D65AB600258814 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1EDB3CAD23D65AB600258814 /* Deep Work AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3CAE23D65AB600258814 /* Deep_Work_AppTests.swift */,
+				1EDB3CB023D65AB600258814 /* Info.plist */,
+			);
+			path = "Deep Work AppTests";
+			sourceTree = "<group>";
+		};
+		1EDB3CB823D65AB600258814 /* Deep Work AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3CB923D65AB600258814 /* Deep_Work_AppUITests.swift */,
+				1EDB3CBB23D65AB600258814 /* Info.plist */,
+			);
+			path = "Deep Work AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1EDB3C9023D65AB600258814 /* Deep Work App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EDB3CBE23D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work App" */;
+			buildPhases = (
+				1EDB3C8D23D65AB600258814 /* Sources */,
+				1EDB3C8E23D65AB600258814 /* Frameworks */,
+				1EDB3C8F23D65AB600258814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Deep Work App";
+			productName = "Deep Work App";
+			productReference = 1EDB3C9123D65AB600258814 /* Deep Work App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1EDB3CA923D65AB600258814 /* Deep Work AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EDB3CC123D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work AppTests" */;
+			buildPhases = (
+				1EDB3CA623D65AB600258814 /* Sources */,
+				1EDB3CA723D65AB600258814 /* Frameworks */,
+				1EDB3CA823D65AB600258814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1EDB3CAC23D65AB600258814 /* PBXTargetDependency */,
+			);
+			name = "Deep Work AppTests";
+			productName = "Deep Work AppTests";
+			productReference = 1EDB3CAA23D65AB600258814 /* Deep Work AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1EDB3CB423D65AB600258814 /* Deep Work AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EDB3CC423D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work AppUITests" */;
+			buildPhases = (
+				1EDB3CB123D65AB600258814 /* Sources */,
+				1EDB3CB223D65AB600258814 /* Frameworks */,
+				1EDB3CB323D65AB600258814 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1EDB3CB723D65AB600258814 /* PBXTargetDependency */,
+			);
+			name = "Deep Work AppUITests";
+			productName = "Deep Work AppUITests";
+			productReference = 1EDB3CB523D65AB600258814 /* Deep Work AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1EDB3C8923D65AB600258814 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Kevin Li";
+				TargetAttributes = {
+					1EDB3C9023D65AB600258814 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					1EDB3CA923D65AB600258814 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 1EDB3C9023D65AB600258814;
+					};
+					1EDB3CB423D65AB600258814 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 1EDB3C9023D65AB600258814;
+					};
+				};
+			};
+			buildConfigurationList = 1EDB3C8C23D65AB600258814 /* Build configuration list for PBXProject "Deep Work App" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1EDB3C8823D65AB600258814;
+			productRefGroup = 1EDB3C9223D65AB600258814 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1EDB3C9023D65AB600258814 /* Deep Work App */,
+				1EDB3CA923D65AB600258814 /* Deep Work AppTests */,
+				1EDB3CB423D65AB600258814 /* Deep Work AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1EDB3C8F23D65AB600258814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EDB3CA423D65AB600258814 /* LaunchScreen.storyboard in Resources */,
+				1EDB3CA123D65AB600258814 /* Preview Assets.xcassets in Resources */,
+				1EDB3C9E23D65AB600258814 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CA823D65AB600258814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CB323D65AB600258814 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1EDB3C8D23D65AB600258814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */,
+				1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */,
+				1EDB3C9C23D65AB600258814 /* ContentView.swift in Sources */,
+				1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CA623D65AB600258814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EDB3CAF23D65AB600258814 /* Deep_Work_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EDB3CB123D65AB600258814 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EDB3CBA23D65AB600258814 /* Deep_Work_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1EDB3CAC23D65AB600258814 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EDB3C9023D65AB600258814 /* Deep Work App */;
+			targetProxy = 1EDB3CAB23D65AB600258814 /* PBXContainerItemProxy */;
+		};
+		1EDB3CB723D65AB600258814 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EDB3C9023D65AB600258814 /* Deep Work App */;
+			targetProxy = 1EDB3CB623D65AB600258814 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EDB3CA323D65AB600258814 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1EDB3CBC23D65AB600258814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1EDB3CBD23D65AB600258814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1EDB3CBF23D65AB600258814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Preview Content\"";
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Deep Work App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1EDB3CC023D65AB600258814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Preview Content\"";
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Deep Work App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1EDB3CC223D65AB600258814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				INFOPLIST_FILE = "Deep Work AppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deep Work App.app/Deep Work App";
+			};
+			name = Debug;
+		};
+		1EDB3CC323D65AB600258814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				INFOPLIST_FILE = "Deep Work AppTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deep Work App.app/Deep Work App";
+			};
+			name = Release;
+		};
+		1EDB3CC523D65AB600258814 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				INFOPLIST_FILE = "Deep Work AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Deep Work App";
+			};
+			name = Debug;
+		};
+		1EDB3CC623D65AB600258814 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 75H2NCGMKS;
+				INFOPLIST_FILE = "Deep Work AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevinli.Deep-Work-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Deep Work App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1EDB3C8C23D65AB600258814 /* Build configuration list for PBXProject "Deep Work App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EDB3CBC23D65AB600258814 /* Debug */,
+				1EDB3CBD23D65AB600258814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EDB3CBE23D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EDB3CBF23D65AB600258814 /* Debug */,
+				1EDB3CC023D65AB600258814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EDB3CC123D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EDB3CC223D65AB600258814 /* Debug */,
+				1EDB3CC323D65AB600258814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EDB3CC423D65AB600258814 /* Build configuration list for PBXNativeTarget "Deep Work AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EDB3CC523D65AB600258814 /* Debug */,
+				1EDB3CC623D65AB600258814 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1EDB3C9923D65AB600258814 /* Deep_Work_App.xcdatamodel */,
+			);
+			currentVersion = 1EDB3C9923D65AB600258814 /* Deep_Work_App.xcdatamodel */;
+			path = Deep_Work_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1EDB3C8923D65AB600258814 /* Project object */;
+}

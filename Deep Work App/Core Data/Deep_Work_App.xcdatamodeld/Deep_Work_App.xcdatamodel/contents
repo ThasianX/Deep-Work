@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="todo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Todo" inverseName="project" inverseEntity="Todo"/>
+    </entity>
+    <entity name="Todo" representedClassName="Todo" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="measureOfSucess" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="todo" inverseEntity="Project"/>
+    </entity>
+    <elements>
+        <element name="Project" positionX="-203.33984375" positionY="68.52734375" width="128" height="103"/>
+        <element name="Todo" positionX="0" positionY="72" width="128" height="118"/>
+    </elements>
+</model>

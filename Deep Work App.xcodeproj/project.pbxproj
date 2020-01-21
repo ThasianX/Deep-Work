@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */; };
+		1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */; };
 		1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9423D65AB600258814 /* AppDelegate.swift */; };
 		1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9623D65AB600258814 /* SceneDelegate.swift */; };
 		1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */; };
@@ -16,6 +18,10 @@
 		1EDB3CA423D65AB600258814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */; };
 		1EDB3CAF23D65AB600258814 /* Deep_Work_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CAE23D65AB600258814 /* Deep_Work_AppTests.swift */; };
 		1EDB3CBA23D65AB600258814 /* Deep_Work_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CB923D65AB600258814 /* Deep_Work_AppUITests.swift */; };
+		1EDB3CEE23D689A100258814 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CED23D689A100258814 /* CoreData.swift */; };
+		1EDB3CF023D68A8300258814 /* CoreDataDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CEF23D68A8300258814 /* CoreDataDataSource.swift */; };
+		1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */; };
+		1EDB3CF923D68E0600258814 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CF723D68E0600258814 /* Task+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1EDB3C9123D65AB600258814 /* Deep Work App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Work App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDB3C9423D65AB600258814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EDB3C9623D65AB600258814 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		1EDB3CB523D65AB600258814 /* Deep Work AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Deep Work AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDB3CB923D65AB600258814 /* Deep_Work_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deep_Work_AppUITests.swift; sourceTree = "<group>"; };
 		1EDB3CBB23D65AB600258814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EDB3CED23D689A100258814 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		1EDB3CEF23D68A8300258814 /* CoreDataDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDataSource.swift; sourceTree = "<group>"; };
+		1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1EDB3CF723D68E0600258814 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,24 +113,12 @@
 		1EDB3C9323D65AB600258814 /* Deep Work App */ = {
 			isa = PBXGroup;
 			children = (
-				1EDB3C9423D65AB600258814 /* AppDelegate.swift */,
-				1EDB3C9623D65AB600258814 /* SceneDelegate.swift */,
-				1EDB3C9B23D65AB600258814 /* ContentView.swift */,
-				1EDB3C9D23D65AB600258814 /* Assets.xcassets */,
-				1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */,
-				1EDB3CA523D65AB600258814 /* Info.plist */,
-				1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */,
-				1EDB3C9F23D65AB600258814 /* Preview Content */,
+				1EDB3CD623D6861900258814 /* System */,
+				1EDB3CD723D6862E00258814 /* UI */,
+				1EDB3CD423D6859200258814 /* Core Data */,
+				1EDB3CD523D685AB00258814 /* Resources */,
 			);
 			path = "Deep Work App";
-			sourceTree = "<group>";
-		};
-		1EDB3C9F23D65AB600258814 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1EDB3CA023D65AB600258814 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1EDB3CAD23D65AB600258814 /* Deep Work AppTests */ = {
@@ -137,6 +137,56 @@
 				1EDB3CBB23D65AB600258814 /* Info.plist */,
 			);
 			path = "Deep Work AppUITests";
+			sourceTree = "<group>";
+		};
+		1EDB3CD423D6859200258814 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3CED23D689A100258814 /* CoreData.swift */,
+				1EDB3CEF23D68A8300258814 /* CoreDataDataSource.swift */,
+				1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */,
+				1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */,
+				1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */,
+				1EDB3CF723D68E0600258814 /* Task+CoreDataProperties.swift */,
+				1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		1EDB3CD523D685AB00258814 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9D23D65AB600258814 /* Assets.xcassets */,
+				1EDB3CA023D65AB600258814 /* Preview Assets.xcassets */,
+				1EDB3CA223D65AB600258814 /* LaunchScreen.storyboard */,
+				1EDB3CA523D65AB600258814 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1EDB3CD623D6861900258814 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9423D65AB600258814 /* AppDelegate.swift */,
+				1EDB3C9623D65AB600258814 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		1EDB3CD723D6862E00258814 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3CD823D6863400258814 /* Screen */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1EDB3CD823D6863400258814 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1EDB3C9B23D65AB600258814 /* ContentView.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +321,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */,
+				1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */,
+				1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */,
 				1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */,
+				1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */,
+				1EDB3CEE23D689A100258814 /* CoreData.swift in Sources */,
+				1EDB3CF023D68A8300258814 /* CoreDataDataSource.swift in Sources */,
 				1EDB3C9C23D65AB600258814 /* ContentView.swift in Sources */,
 				1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */,
+				1EDB3CF923D68E0600258814 /* Task+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,10 +495,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Resources\"";
 				DEVELOPMENT_TEAM = 75H2NCGMKS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Deep Work App/Info.plist";
+				INFOPLIST_FILE = "Deep Work App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,10 +515,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Deep Work App/Resources\"";
 				DEVELOPMENT_TEAM = 75H2NCGMKS;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Deep Work App/Info.plist";
+				INFOPLIST_FILE = "Deep Work App/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

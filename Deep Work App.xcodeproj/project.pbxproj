@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E20418A23DB486600AB0F2C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20418923DB486600AB0F2C /* ProjectDetails.swift */; };
 		1E5A30C123D7BADB00BA79A0 /* RootViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A30C023D7BADB00BA79A0 /* RootViewModifier.swift */; };
 		1E5A30C423D7EED100BA79A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A30C323D7EED100BA79A0 /* HomeView.swift */; };
 		1E6FBA9323D94D4E0055DA2F /* InteractorsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9223D94D4E0055DA2F /* InteractorsContainer.swift */; };
@@ -17,7 +18,7 @@
 		1E6FBA9F23D950AA0055DA2F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9E23D950AA0055DA2F /* Loadable.swift */; };
 		1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */; };
 		1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */; };
-		1EAC7AC523DAA6C500DC3E8C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC423DAA6C500DC3E8C /* ProjectDetails.swift */; };
+		1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */; };
 		1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */; };
 		1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */; };
 		1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9423D65AB600258814 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E20418923DB486600AB0F2C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
 		1E5A30C023D7BADB00BA79A0 /* RootViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModifier.swift; sourceTree = "<group>"; };
 		1E5A30C323D7EED100BA79A0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1E6FBA9223D94D4E0055DA2F /* InteractorsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorsContainer.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		1E6FBA9E23D950AA0055DA2F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		1EAC7AC423DAA6C500DC3E8C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
+		1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
 		1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1EDB3C9123D65AB600258814 /* Deep Work App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Work App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E20418823DB46A900AB0F2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E20418923DB486600AB0F2C /* ProjectDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1E6FBA9C23D94D7B0055DA2F /* Injected */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 				1E6FBA9C23D94D7B0055DA2F /* Injected */,
 				1EF062E823D9E55F00CB8C07 /* Repositories */,
 				1EF062ED23D9E94200CB8C07 /* Interactors */,
+				1E20418823DB46A900AB0F2C /* Models */,
 				1EDB3CD723D6862E00258814 /* UI */,
 				1EDB3CD423D6859200258814 /* Core Data */,
 				1EDB3CD523D685AB00258814 /* Resources */,
@@ -253,7 +264,7 @@
 			children = (
 				1EDB3C9B23D65AB600258814 /* RootView.swift */,
 				1E5A30C323D7EED100BA79A0 /* HomeView.swift */,
-				1EAC7AC423DAA6C500DC3E8C /* ProjectDetails.swift */,
+				1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -408,7 +419,7 @@
 				1EF062EC23D9E66300CB8C07 /* ProjectLoader.swift in Sources */,
 				1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */,
 				1E6FBA9723D94D660055DA2F /* DependencyInjector.swift in Sources */,
-				1EAC7AC523DAA6C500DC3E8C /* ProjectDetails.swift in Sources */,
+				1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */,
 				1E6FBA9523D94D540055DA2F /* Helpers.swift in Sources */,
 				1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */,
 				1E5A30C123D7BADB00BA79A0 /* RootViewModifier.swift in Sources */,
@@ -423,6 +434,7 @@
 				1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */,
 				1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */,
 				1E6FBA9F23D950AA0055DA2F /* Loadable.swift in Sources */,
+				1E20418A23DB486600AB0F2C /* ProjectDetails.swift in Sources */,
 				1EDB3CEE23D689A100258814 /* CoreData.swift in Sources */,
 				1EF062EF23D9E95700CB8C07 /* ProjectsInteractor.swift in Sources */,
 				1EDB3CF023D68A8300258814 /* CoreDataDataSource.swift in Sources */,

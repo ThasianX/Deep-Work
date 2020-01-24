@@ -20,25 +20,31 @@ public class Project: NSManagedObject {
     
     #if DEBUG
     class func previewProjects() -> [Project] {
-        var projects = allInOrder()
-        if projects.count > 0 {
-            return projects
-        } else {
-            let project = createProject(name: "School")
-            for _ in 0...3 {
-                Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project)
-            }
-            Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project)
-            
-            projects.append(project)
-            
-            return projects
+        var projects = [Project]()
+        let project1 = createProject(name: "School")
+        for _ in 0...3 {
+            Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project1)
         }
+        projects.append(project1)
+        
+        let project2 = createProject(name: "Personal")
+        for _ in 0...3 {
+            Task.createTask(name: "Work on personal website", duration: 60, measureOfSuccess: "At least 1 screen finished", project: project2)
+        }
+        projects.append(project2)
+        
+        let project3 = createProject(name: "Fitness")
+        for _ in 0...3 {
+            Task.createTask(name: "Go to the gym", duration: 60, measureOfSuccess: "45 minutes in the gym", project: project3)
+        }
+        projects.append(project3)
+        
+        return projects
     }
     #endif
     
     // MARK: CRUD
-    public var completedTasks: [Task] {
+    public var allTasks: [Task] {
         guard let tasks = self.tasks as? Set<Task> else {
             return []
         }

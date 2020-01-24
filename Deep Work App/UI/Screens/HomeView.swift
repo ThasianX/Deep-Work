@@ -75,16 +75,16 @@ private extension HomeView {
 private extension HomeView {
     func loadedView(_ projects: [Project]) -> some View {
         List(projects) { project in
-            NavigationLink(destination: EmptyView(),
+            NavigationLink(destination: self.detailsView(project: project),
                            tag: project.name,
                            selection: self.routingBinding.selectedProject) {
-                            EmptyView()
+                            Text("\(project.name)")
             }
         }
     }
     
     func detailsView(project: Project) -> some View {
-        ProjectDetails(project: project)
+        ProjectDetailsView(project: project)
     }
 }
 

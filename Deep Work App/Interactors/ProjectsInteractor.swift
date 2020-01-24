@@ -8,10 +8,11 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 protocol ProjectsInteractor {
     func loadProjects() -> AnyCancellable
-    
+    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project) -> AnyCancellable
 }
 
 struct RealProjectsInteractor: ProjectsInteractor {
@@ -25,10 +26,26 @@ struct RealProjectsInteractor: ProjectsInteractor {
         return projectsRepository.loadProjects()
             .sinkToLoadable { weakAppState?[\.userData.projects] = $0 }
     }
+    
+    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project) -> AnyCancellable {
+        var tasks = project.allTasks
+        var currentTask: Task? = nil
+        if let latestTask = tasks.first {
+            currentTask = latestTask
+            tasks.removeFirst()
+        }
+        
+        return Just(ProjectDetails(currentTask: currentTask, completedTasks: tasks))
+            .sinkToLoadable { projectDetails.wrappedValue = $0 }
+    }
 }
 
 struct StubProjectsInteractor: ProjectsInteractor {
     func loadProjects() -> AnyCancellable {
+        return .cancelled
+    }
+    
+    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project)  -> AnyCancellable {
         return .cancelled
     }
 }

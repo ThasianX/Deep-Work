@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 
-extension Task {
+extension Task: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
         return NSFetchRequest<Task>(entityName: "Task")

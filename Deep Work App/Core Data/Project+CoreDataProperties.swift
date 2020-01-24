@@ -11,18 +11,17 @@ import Foundation
 import CoreData
 
 
-extension Project {
+extension Project: Identifiable {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Project> {
         return NSFetchRequest<Project>(entityName: "Project")
     }
 
     @NSManaged public var archived: Bool
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var name: String?
+    @NSManaged public var createdAt: Date
+    @NSManaged public var name: String
     @NSManaged public var timeSpent: Double
     @NSManaged public var tasks: NSSet?
-
 }
 
 // MARK: Generated accessors for tasks

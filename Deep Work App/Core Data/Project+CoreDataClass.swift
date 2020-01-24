@@ -26,9 +26,9 @@ public class Project: NSManagedObject {
         } else {
             let project = createProject(name: "School")
             for _ in 0...3 {
-                Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project, complete: true)
+                Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project)
             }
-            Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project, complete: false)
+            Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: project)
             
             projects.append(project)
             

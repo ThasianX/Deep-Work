@@ -21,7 +21,7 @@ class CoreDataDataSource<T: NSManagedObject>: NSObject, ObservableObject, NSFetc
         
         super.init()
         
-        self.sortKey1 = "order"
+        self.sortKey1 = "createdAt"
         self.sortKey2 = nil
         self.sectionNameKeyPath = nil
         
@@ -49,7 +49,7 @@ class CoreDataDataSource<T: NSManagedObject>: NSObject, ObservableObject, NSFetc
         
         super.init()
         
-        self.sortKey1 = "order"
+        self.sortKey1 = "createdAt"
         self.sortKey2 = nil
         self.sectionNameKeyPath = nil
         
@@ -62,7 +62,7 @@ class CoreDataDataSource<T: NSManagedObject>: NSObject, ObservableObject, NSFetc
         
         super.init()
         
-        self.sortKey1 = "order"
+        self.sortKey1 = "createdAt"
         self.sortKey2 = nil
         self.sectionNameKeyPath = nil
         

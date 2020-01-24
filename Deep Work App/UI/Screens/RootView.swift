@@ -8,14 +8,20 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
+    private let container: DIContainer
+    
+    init(container: DIContainer) {
+        self.container = container
+    }
+    
     var body: some View {
-        Text("Hello, World!")
+        HomeView().inject(container)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView(container: .preview)
     }
 }

@@ -19,16 +19,17 @@ public class Task: NSManagedObject {
     
     #if DEBUG
     class func preview() -> Task {
-        Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: Project.createProject(name: "School"), complete: false)
+        Task.createTask(name: "Write english essay", duration: 60, measureOfSuccess: "At least 1 page written", project: Project.createProject(name: "School"))
     }
     #endif
     
+    // MARK: CRUD
     class func newTask() -> Task {
         Task(context: CoreData.stack.context)
     }
     
     @discardableResult
-    class func createTask(name: String, duration: Double, measureOfSuccess: String, project: Project, complete: Bool) -> Task {
+    class func createTask(name: String, duration: Double, measureOfSuccess: String, project: Project) -> Task {
         let task = newTask()
         
         task.name = name
@@ -36,7 +37,7 @@ public class Task: NSManagedObject {
         task.duration = duration
         task.measureOfSucess = measureOfSuccess
         task.project = project
-        task.complete = complete
+        task.complete = false
         CoreData.stack.save()
         
         return task

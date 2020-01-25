@@ -45,7 +45,8 @@ private extension ProjectDetailsView {
     }
     
     func setSelectedProject() {
-        injected.appState[\.routing.homeView.selectedProject] = project.name
+        injected.interactors.projectsInteractor
+            .setSelectedProject(name: project.name)
     }
 }
 
@@ -76,9 +77,10 @@ private extension ProjectDetailsView {
 // MARK: - Displaying Content
 private extension ProjectDetailsView {
     func loadedView(_ projectDetails: ProjectDetails) -> some View {
-        List(projectDetails.completedTasks) { task in
-            Text("\(task.name)")
-        }
+        Text(project.name)
+//        List(projectDetails.completedTasks) { task in
+//            Text("\(task.name)")
+//        }
     }
 }
 

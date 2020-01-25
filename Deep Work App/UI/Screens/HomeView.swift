@@ -20,13 +20,26 @@ struct HomeView: View {
     private let cancelBag = CancelBag()
     
     var body: some View {
-        NavigationView {
-            self.content
-                .navigationBarTitle("Projects")
-                .navigationBarItems(trailing: AddView(show: routingBinding.addProjectSheet))
+        VStack {
+            self.header
+            NavigationView {
+                self.content.navigationBarTitle("Projects", displayMode: .inline)
+                    .navigationBarItems(
+                        trailing: AddView(show: routingBinding.addProjectSheet)
+                )
+            }
+            .onReceive(projectsUpdate) { self.projectsStatus = $0 }
+            .onReceive(routingUpdate) { self.routingState = $0 }
         }
-        .onReceive(projectsUpdate) { self.projectsStatus = $0 }
-        .onReceive(routingUpdate) { self.routingState = $0 }
+    }
+    
+    private var header: some View {
+        HStack {
+            Image(systemName: "gear").imageScale(.large)
+            Spacer()
+            Image(systemName: "gear").imageScale(.large)
+        }
+        .padding()
     }
     
     private var content: AnyView {
@@ -49,8 +62,8 @@ private extension HomeView {
     
     func addProject(name: String) {
         injected.interactors.projectsInteractor
-        .addProject(name: name)
-        .store(in: cancelBag)
+            .addProject(name: name)
+            .store(in: cancelBag)
     }
 }
 
@@ -103,8 +116,7 @@ private extension HomeView {
 // MARK: - Routing
 extension HomeView {
     struct Routing: Equatable {
-        @UserDefault("selected_project", defaultValue: nil)
-        var selectedProject: String?
+        var selectedProject: String? = AppUserDefaults.selectedProject
         
         var addProjectSheet: Bool = false
     }

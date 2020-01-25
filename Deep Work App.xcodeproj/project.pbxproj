@@ -18,6 +18,8 @@
 		1E6FBA9A23D94D6B0055DA2F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9823D94D6B0055DA2F /* AppEnvironment.swift */; };
 		1E6FBA9B23D94D6B0055DA2F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9923D94D6B0055DA2F /* AppState.swift */; };
 		1E6FBA9F23D950AA0055DA2F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9E23D950AA0055DA2F /* Loadable.swift */; };
+		1E7D34CC23DC8D7600CA6BC5 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */; };
+		1E7D34CE23DCA0C300CA6BC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */; };
 		1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */; };
 		1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */; };
 		1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */; };
@@ -70,6 +72,8 @@
 		1E6FBA9823D94D6B0055DA2F /* AppEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		1E6FBA9923D94D6B0055DA2F /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1E6FBA9E23D950AA0055DA2F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				1E6FBA9E23D950AA0055DA2F /* Loadable.swift */,
 				1E6FBA9423D94D540055DA2F /* Helpers.swift */,
 				1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */,
+				1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */,
+				1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -423,6 +429,8 @@
 				1E08344E23DBD7E10095EE4D /* AddView.swift in Sources */,
 				1E6FBA9723D94D660055DA2F /* DependencyInjector.swift in Sources */,
 				1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */,
+				1E7D34CC23DC8D7600CA6BC5 /* AppUserDefaults.swift in Sources */,
+				1E7D34CE23DCA0C300CA6BC5 /* Constants.swift in Sources */,
 				1E6FBA9523D94D540055DA2F /* Helpers.swift in Sources */,
 				1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */,
 				1E5A30C123D7BADB00BA79A0 /* RootViewModifier.swift in Sources */,

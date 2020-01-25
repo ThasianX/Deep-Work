@@ -21,6 +21,11 @@ struct RealProjectsInteractor: ProjectsInteractor {
     let projectsRepository: ProjectsLocalRepository
     let appState: Store<AppState>
     
+    init(projectsRepository: ProjectsLocalRepository, appState: Store<AppState>) {
+        self.projectsRepository = projectsRepository
+        self.appState = appState
+    }
+    
     func loadProjects() -> AnyCancellable {
         let projects = appState.value.userData.projects.value
         appState[\.userData.projects] = .isLoading(last: projects)
@@ -50,6 +55,7 @@ struct RealProjectsInteractor: ProjectsInteractor {
     
     func setSelectedProject(name: String) {
         weak var weakAppState = appState
+        AppUserDefaults.selectedProject = name
         weakAppState?[\.routing.homeView.selectedProject] = name
     }
 }

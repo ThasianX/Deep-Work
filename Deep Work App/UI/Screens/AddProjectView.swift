@@ -23,41 +23,45 @@ struct AddProjectView: View {
     }
     
     var title: String {
-        return "\(existingProject != nil ? "Edit" : "Add") Project"
-    }
-    
-    var commit: String {
-        return "\(existingProject != nil ? "Save" : "Add")"
+        return "\(existingProject != nil ? "Edit" : "New") Project"
     }
     
     var body: some View {
-        VStack {
-            Text(title)
-                .font(.title)
-            
-            Text("Project Name")
-            TextField("", text: $input)
-            
-            HStack {
+        NavigationView {
+            VStack {
+                TextField("Name your project", text: $input)
+                    .font(.headline)
+                    .padding()
+                Divider()
                 Spacer()
-                Button(action: { self.show = false} ) {
-                    Text("Cancel")
-                }
-                Button(action: {
-                    self.show = false
-                    self.onCommit(self.input)
-                }) {
-                    Text(commit)
-                }
-                .disabled(input.isEmpty)
             }
+            .navigationBarTitle(Text(title).font(.headline), displayMode: .inline)
+            .navigationBarItems(leading: cancelButton, trailing: doneButton)
         }
-        .padding()
+    .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var cancelButton: some View {
+        Button(action: {
+            self.show = false
+        } ) {
+            Text("Cancel")
+        }
+    }
+    
+    var doneButton: some View {
+        Button(action: {
+            self.show = false
+            self.onCommit(self.input)
+        }) {
+            Text("Done")
+        }
+        .disabled(input.isEmpty)
     }
 }
 
 struct AddProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        AddProjectView(show: .constant(true), existingProject: nil, onCommit: { _ in })
+        AddProjectView(show: .constant(true), existingProject: nil, onCommit: { _ in})
     }
 }

@@ -20,26 +20,41 @@ struct HomeView: View {
     private let cancelBag = CancelBag()
     
     var body: some View {
-        VStack {
-            self.header
-            NavigationView {
-                self.content.navigationBarTitle("Projects", displayMode: .inline)
-                    .navigationBarItems(
-                        trailing: AddView(show: routingBinding.addProjectSheet)
-                )
+        NavigationView {
+            VStack(spacing: 0) {
+                self.header
+                self.masterHeader
+                self.content
+                Spacer()
             }
+            .hideNavigationBar()
             .onReceive(projectsUpdate) { self.projectsStatus = $0 }
             .onReceive(routingUpdate) { self.routingState = $0 }
         }
     }
     
     private var header: some View {
+        VStack {
+            HStack {
+                Image(systemName: "gear").imageScale(.large)
+                Spacer()
+                Image(systemName: "gear").imageScale(.large)
+            }
+            .padding(leading: 20, trailing: 20, top: 13, bottom: 10)
+            
+            CustomDivider()
+        }
+    }
+    
+    private var masterHeader: some View {
         HStack {
-            Image(systemName: "gear").imageScale(.large)
+            Text("Projects")
+                .font(.headline)
             Spacer()
-            Image(systemName: "gear").imageScale(.large)
+            AddView(show: routingBinding.addProjectSheet)
         }
         .padding()
+        .background(Color.secondary.colorInvert())
     }
     
     private var content: AnyView {

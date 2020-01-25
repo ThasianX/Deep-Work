@@ -20,6 +20,8 @@
 		1E6FBA9F23D950AA0055DA2F /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6FBA9E23D950AA0055DA2F /* Loadable.swift */; };
 		1E7D34CC23DC8D7600CA6BC5 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */; };
 		1E7D34CE23DCA0C300CA6BC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */; };
+		1E7D34D023DCEE7500CA6BC5 /* View+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CF23DCEE7500CA6BC5 /* View+Additions.swift */; };
+		1E7D34D223DCF1BF00CA6BC5 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34D123DCF1BF00CA6BC5 /* CustomDivider.swift */; };
 		1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */; };
 		1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */; };
 		1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */; };
@@ -74,6 +76,8 @@
 		1E6FBA9E23D950AA0055DA2F /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1E7D34CF23DCEE7500CA6BC5 /* View+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Additions.swift"; sourceTree = "<group>"; };
+		1E7D34D123DCF1BF00CA6BC5 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */,
 				1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */,
 				1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */,
+				1E7D34CF23DCEE7500CA6BC5 /* View+Additions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */,
 				1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */,
 				1E08344D23DBD7E10095EE4D /* AddView.swift */,
+				1E7D34D123DCF1BF00CA6BC5 /* CustomDivider.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */,
 				1E6FBA9A23D94D6B0055DA2F /* AppEnvironment.swift in Sources */,
 				1E6FBA9B23D94D6B0055DA2F /* AppState.swift in Sources */,
+				1E7D34D223DCF1BF00CA6BC5 /* CustomDivider.swift in Sources */,
 				1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */,
 				1E5A30C423D7EED100BA79A0 /* HomeView.swift in Sources */,
 				1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */,
@@ -451,6 +458,7 @@
 				1EF062EF23D9E95700CB8C07 /* ProjectsInteractor.swift in Sources */,
 				1EDB3CF023D68A8300258814 /* CoreDataDataSource.swift in Sources */,
 				1EDB3C9C23D65AB600258814 /* RootView.swift in Sources */,
+				1E7D34D023DCEE7500CA6BC5 /* View+Additions.swift in Sources */,
 				1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */,
 				1E6FBA9323D94D4E0055DA2F /* InteractorsContainer.swift in Sources */,
 				1EDB3CF923D68E0600258814 /* Task+CoreDataProperties.swift in Sources */,

@@ -55,6 +55,7 @@ public class Project: NSManagedObject {
         Project(context: CoreData.stack.context)
     }
     
+    @discardableResult
     class func createProject(name: String) -> Project {
         let project = newProject()
         

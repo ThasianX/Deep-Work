@@ -9,8 +9,17 @@
 import Foundation
 import Combine
 
-struct ProjectsLocalRepository: ProjectLoader {
+protocol ProjectsLocalRepository {
+    func loadProjects() -> AnyPublisher<[Project], Never>
+    func addProject(name: String)
+}
+
+struct RealProjectsLocalRepository: ProjectsLocalRepository {
     func loadProjects() -> AnyPublisher<[Project], Never> {
         return Just(Project.allInOrder()).eraseToAnyPublisher()
+    }
+    
+    func addProject(name: String) {
+        Project.createProject(name: name)
     }
 }

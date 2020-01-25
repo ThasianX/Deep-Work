@@ -21,6 +21,9 @@ struct ProjectDetailsView: View {
     
     var body: some View {
         content
+            .onAppear {
+                self.setSelectedProject()
+        }
     }
     
     private var content: AnyView {
@@ -39,6 +42,10 @@ private extension ProjectDetailsView {
         injected.interactors.projectsInteractor
             .load(projectDetails: $projectDetails, project: project)
             .store(in: cancelBag)
+    }
+    
+    func setSelectedProject() {
+        injected.appState[\.routing.homeView.selectedProject] = project.name
     }
 }
 

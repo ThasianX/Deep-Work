@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E08344E23DBD7E10095EE4D /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E08344D23DBD7E10095EE4D /* AddView.swift */; };
+		1E08345023DBD9E60095EE4D /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E08344F23DBD9E60095EE4D /* AddProjectView.swift */; };
 		1E20418A23DB486600AB0F2C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20418923DB486600AB0F2C /* ProjectDetails.swift */; };
 		1E5A30C123D7BADB00BA79A0 /* RootViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A30C023D7BADB00BA79A0 /* RootViewModifier.swift */; };
 		1E5A30C423D7EED100BA79A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A30C323D7EED100BA79A0 /* HomeView.swift */; };
@@ -35,7 +37,6 @@
 		1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */; };
 		1EDB3CF923D68E0600258814 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3CF723D68E0600258814 /* Task+CoreDataProperties.swift */; };
 		1EF062EA23D9E58200CB8C07 /* ProjectsLocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF062E923D9E58200CB8C07 /* ProjectsLocalRepository.swift */; };
-		1EF062EC23D9E66300CB8C07 /* ProjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF062EB23D9E66300CB8C07 /* ProjectLoader.swift */; };
 		1EF062EF23D9E95700CB8C07 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF062EE23D9E95700CB8C07 /* ProjectsInteractor.swift */; };
 		1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E08344D23DBD7E10095EE4D /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		1E08344F23DBD9E60095EE4D /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		1E20418923DB486600AB0F2C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
 		1E5A30C023D7BADB00BA79A0 /* RootViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModifier.swift; sourceTree = "<group>"; };
 		1E5A30C323D7EED100BA79A0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -92,7 +95,6 @@
 		1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1EDB3CF723D68E0600258814 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1EF062E923D9E58200CB8C07 /* ProjectsLocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsLocalRepository.swift; sourceTree = "<group>"; };
-		1EF062EB23D9E66300CB8C07 /* ProjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLoader.swift; sourceTree = "<group>"; };
 		1EF062EE23D9E95700CB8C07 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
 		1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				1E6FBA9E23D950AA0055DA2F /* Loadable.swift */,
-				1EF062EB23D9E66300CB8C07 /* ProjectLoader.swift */,
 				1E6FBA9423D94D540055DA2F /* Helpers.swift */,
 				1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */,
 			);
@@ -156,6 +157,7 @@
 			children = (
 				1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */,
 				1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */,
+				1E08344D23DBD7E10095EE4D /* AddView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -265,6 +267,7 @@
 				1EDB3C9B23D65AB600258814 /* RootView.swift */,
 				1E5A30C323D7EED100BA79A0 /* HomeView.swift */,
 				1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */,
+				1E08344F23DBD9E60095EE4D /* AddProjectView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -416,8 +419,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF062EC23D9E66300CB8C07 /* ProjectLoader.swift in Sources */,
 				1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */,
+				1E08344E23DBD7E10095EE4D /* AddView.swift in Sources */,
 				1E6FBA9723D94D660055DA2F /* DependencyInjector.swift in Sources */,
 				1EAC7AC523DAA6C500DC3E8C /* ProjectDetailsView.swift in Sources */,
 				1E6FBA9523D94D540055DA2F /* Helpers.swift in Sources */,
@@ -425,6 +428,7 @@
 				1E5A30C123D7BADB00BA79A0 /* RootViewModifier.swift in Sources */,
 				1EF062EA23D9E58200CB8C07 /* ProjectsLocalRepository.swift in Sources */,
 				1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */,
+				1E08345023DBD9E60095EE4D /* AddProjectView.swift in Sources */,
 				1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */,
 				1E6FBA9A23D94D6B0055DA2F /* AppEnvironment.swift in Sources */,
 				1E6FBA9B23D94D6B0055DA2F /* AppState.swift in Sources */,

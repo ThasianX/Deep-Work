@@ -24,7 +24,7 @@ extension AppEnvironment {
     
     private static func configuredInteractors(appState: Store<AppState>) -> DIContainer.Interactors {
         let projectsInteractor = RealProjectsInteractor(
-            projectsRepository: ProjectsLocalRepository(),
+            projectsRepository: RealProjectsLocalRepository(),
             appState: appState)
         return .init(projectsInteractor: projectsInteractor)
     }

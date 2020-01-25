@@ -22,7 +22,8 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             self.content
-            .navigationBarTitle("Projects")
+                .navigationBarTitle("Projects")
+                .navigationBarItems(trailing: AddView(show: routingBinding.addProjectSheet))
         }
         .onReceive(projectsUpdate) { self.projectsStatus = $0 }
         .onReceive(routingUpdate) { self.routingState = $0 }
@@ -38,10 +39,17 @@ struct HomeView: View {
     }
 }
 
+// MARK: - Side Effects
 private extension HomeView {
     func loadProjects() {
         injected.interactors.projectsInteractor
-        .loadProjects()
+            .loadProjects()
+            .store(in: cancelBag)
+    }
+    
+    func addProject(name: String) {
+        injected.interactors.projectsInteractor
+        .addProject(name: name)
         .store(in: cancelBag)
     }
 }
@@ -71,7 +79,6 @@ private extension HomeView {
 }
 
 // MARK: - Displaying content
-
 private extension HomeView {
     func loadedView(_ projects: [Project]) -> some View {
         List(projects) { project in
@@ -81,10 +88,15 @@ private extension HomeView {
                             Text("\(project.name)")
             }
         }
+        .sheet(isPresented: routingBinding.addProjectSheet, content: { self.modalAddProjectView() })
     }
     
     func detailsView(project: Project) -> some View {
         ProjectDetailsView(project: project)
+    }
+    
+    func modalAddProjectView() -> some View {
+        AddProjectView(show: routingBinding.addProjectSheet, existingProject: nil, onCommit: addProject)
     }
 }
 
@@ -93,6 +105,8 @@ extension HomeView {
     struct Routing: Equatable {
         @UserDefault("selected_project", defaultValue: nil)
         var selectedProject: String?
+        
+        var addProjectSheet: Bool = false
     }
 }
 
@@ -110,7 +124,8 @@ private extension HomeView {
 #if DEBUG
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().inject(.preview)
+        let view = HomeView().inject(.preview)
+        return view
     }
 }
 #endif

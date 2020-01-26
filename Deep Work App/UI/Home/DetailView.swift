@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject private var viewModel: AnyViewModel<DetailState, DetailInput>
+    @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
     
     var body: some View {
         content
@@ -40,39 +40,28 @@ struct ProjectDetails_Previews: PreviewProvider {
     }
 }
 
-struct DetailState {
-    var project: Project
-    var projectDetails: ProjectDetails
-}
-
-enum DetailInput {
-    //    case addTask(Task)
-}
-
-class DetailViewModel: ViewModel {
-    @Published var state: DetailState
-    
-    private let projectService: ProjectService
-    private let project: Project
-    
-    init(project: Project, projectService: ProjectService) {
-        func projectDetails(project: Project) -> ProjectDetails {
-            var tasks = project.allTasks
-            var currentTask: Task? = nil
-            if let latestTask = tasks.first {
-                currentTask = latestTask
-                tasks.removeFirst()
-            }
-            
-            return ProjectDetails(currentTask: currentTask, completedTasks: tasks)
-        }
-        
-        self.projectService = projectService
-        self.project = project
-        self.state = DetailState(project: project, projectDetails: projectDetails(project: project))
-    }
-    
-    func trigger(_ input: DetailInput) {
-        
-    }
-}
+//struct DetailState {
+//    var project: Project
+//    var projectDetails: ProjectDetails
+//}
+//
+//enum DetailInput {
+//    //    case addTask(Task)
+//}
+//
+//class DetailViewModel: ViewModel {
+//    @Published var state: DetailState
+//
+//    private let projectService: ProjectService
+//    private let project: Project
+//
+//    init(project: Project, projectService: ProjectService) {
+//        self.projectService = projectService
+//        self.project = project
+//        self.state = DetailState(project: project, projectDetails: projectService.projectDetails(for: project))
+//    }
+//
+//    func trigger(_ input: DetailInput) {
+//
+//    }
+//}

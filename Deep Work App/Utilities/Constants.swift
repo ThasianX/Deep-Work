@@ -10,6 +10,6 @@ import Foundation
 
 struct Constants {
     struct UserDefaults {
-        static let currentProject = "current_project"
+        static let currentProjectName = "current_project_name"
     }
 }

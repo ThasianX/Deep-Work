@@ -14,9 +14,11 @@ protocol ProjectService {
     @discardableResult
     func addProject(name: String) -> Project
     
-    func removeProject(project: Project)
+    func remove(project: Project) -> Project
     
     func load(name: String) -> Project
+    
+    func projectDetails(for project: Project) -> ProjectDetails
 }
 
 struct LocalProjectService: ProjectService {
@@ -28,8 +30,8 @@ struct LocalProjectService: ProjectService {
         Project.createProject(name: name)
     }
     
-    func removeProject(project: Project) {
-        project.delete()
+    func remove(project: Project) -> Project{
+        return project.delete()
     }
     
     func load(name: String) -> Project {
@@ -37,5 +39,16 @@ struct LocalProjectService: ProjectService {
         let fetched = CoreDataDataSource<Project>(predicate: predicate).fetchedObjects
         
         return fetched.first ?? .stub
+    }
+    
+    func projectDetails(for project: Project) -> ProjectDetails {
+        var tasks = project.allTasks
+        var currentTask: Task? = nil
+        if let latestTask = tasks.first {
+            currentTask = latestTask
+            tasks.removeFirst()
+        }
+        
+        return ProjectDetails(currentTask: currentTask, completedTasks: tasks)
     }
 }

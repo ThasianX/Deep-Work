@@ -14,5 +14,5 @@ struct ProjectDetails: Equatable {
 }
 
 extension ProjectDetails {
-    static let mock = ProjectDetails(currentTask: nil, completedTasks: Project.previewProjects().first!.allTasks)
+    static let stub = ProjectDetails(currentTask: nil, completedTasks: [])
 }

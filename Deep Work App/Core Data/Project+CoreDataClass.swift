@@ -83,7 +83,9 @@ public class Project: NSManagedObject {
         CoreData.stack.save()
     }
     
-    public func delete() {
+    public func delete() -> Project {
+        let project = self
         CoreData.stack.context.delete(self)
+        return project 
     }
 }

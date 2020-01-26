@@ -25,15 +25,16 @@ struct HomeView: View {
                     .frame(maxHeight: 60)
                 HStack {
                     if !self.routingState.fullScreen {
-                        ProjectMasterView()
+                        ProjectMasterView(selectedProject: self.routingBinding.selectedProject)
                             .frame(width: geometry.size.width / 3.5)
                     }
-                    
-                    Rectangle()
-                        .background(Color.black)
-                        .frame(width: self.routingState.fullScreen ? geometry.size.width : geometry.size.width - (geometry.size.width / 3.5))
+                    ProjectDetailsView(name: self.routingBinding.selectedProject)
+                    .frame(width: self.routingState.fullScreen ? geometry.size.width : geometry.size.width - (geometry.size.width / 3.5))
                 }
             }
+            .onReceive(self.routingUpdate, perform: {
+                print("\($0)")
+                self.routingState = $0 })
         }
     }
     
@@ -55,12 +56,12 @@ struct HomeView: View {
                 HStack {
                     Button(action: {
                         withAnimation {
-                            self.routingState.fullScreen.toggle()
+                            self.toggleFullScreen()
                         }
                     }) {
                         Image(systemName: routingState.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
                     }
-                    Text(injected.appState.value.routing.masterView.selectedProject)
+                    Text(self.routingBinding.selectedProject.wrappedValue)
                         .font(.system(size: 20))
                         .bold()
                     Spacer()
@@ -76,7 +77,10 @@ struct HomeView: View {
 
 // MARK: - Side Effects
 private extension HomeView {
-    
+    func toggleFullScreen() {
+        injected.interactors.projectsInteractor
+            .toggleFullScreen(fullScreen: routingBinding.fullScreen)
+    }
 }
 
 // MARK: - Loading Content
@@ -85,14 +89,13 @@ private extension HomeView {
 
 // MARK: - Displaying content
 private extension HomeView {
-    func detailsView(project: Project) -> some View {
-        ProjectDetailsView(project: project)
-    }
 }
 
 // MARK: - Routing
 extension HomeView {
     struct Routing: Equatable {
+        var selectedProject: String = ""
+        
         var fullScreen: Bool = false
     }
 }
@@ -101,10 +104,6 @@ extension HomeView {
 private extension HomeView {
     var routingUpdate: AnyPublisher<Routing, Never> {
         injected.appState.updates(for: \.routing.homeView)
-    }
-    
-    var projectsUpdate: AnyPublisher<Loadable<[Project]>, Never> {
-        injected.appState.updates(for: \.userData.projects)
     }
 }
 

@@ -9,6 +9,6 @@
 import Foundation
 
 struct AppUserDefaults {
-    @UserDefault("selected_project", defaultValue: "")
-    static var selectedProject: String
+    @UserDefault("selected_project", defaultValue: Project.stub)
+    static var selectedProject: Project
 }

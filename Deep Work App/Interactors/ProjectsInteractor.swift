@@ -10,11 +10,16 @@ import Foundation
 import Combine
 import SwiftUI
 
+enum ProjectDetailsError: Error {
+    case empty
+}
+
 protocol ProjectsInteractor {
     func loadProjects() -> AnyCancellable
-    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project) -> AnyCancellable
-    func addProject(name: String) -> AnyCancellable
-    func setSelectedProject(name: String)
+    func load(name: String, projectDetails: Binding<Loadable<ProjectDetails>>) -> AnyCancellable
+    func addProject(name: String, selectedProject: Binding<String>) -> AnyCancellable
+    func setSelectedProject(project: Project, selectedProject: Binding<String>)
+    func toggleFullScreen(fullScreen: Binding<Bool>)
 }
 
 struct RealProjectsInteractor: ProjectsInteractor {
@@ -34,29 +39,35 @@ struct RealProjectsInteractor: ProjectsInteractor {
             .sinkToLoadable { weakAppState?[\.userData.projects] = $0 }
     }
     
-    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project) -> AnyCancellable {
-        var tasks = project.allTasks
-        var currentTask: Task? = nil
-        if let latestTask = tasks.first {
-            currentTask = latestTask
-            tasks.removeFirst()
+    func load(name: String, projectDetails: Binding<Loadable<ProjectDetails>>) -> AnyCancellable {
+        if let project = projectsRepository.getProject(name: name).first {
+            var tasks = project.allTasks
+            var currentTask: Task? = nil
+            if let latestTask = tasks.first {
+                currentTask = latestTask
+                tasks.removeFirst()
+            }
+            
+            return Just(ProjectDetails(currentTask: currentTask, completedTasks: tasks))
+                .sinkToLoadable { projectDetails.wrappedValue = $0 }
         }
-        
-        return Just(ProjectDetails(currentTask: currentTask, completedTasks: tasks))
+        return Just(ProjectDetails.empty)
             .sinkToLoadable { projectDetails.wrappedValue = $0 }
     }
     
-    func addProject(name: String) -> AnyCancellable {
+    func addProject(name: String, selectedProject: Binding<String>) -> AnyCancellable {
         // set selected project to this new one
-        projectsRepository.addProject(name: name)
-        setSelectedProject(name: name)
+        let project = projectsRepository.addProject(name: name)
+        setSelectedProject(project: project, selectedProject: selectedProject)
         return loadProjects()
     }
     
-    func setSelectedProject(name: String) {
-        weak var weakAppState = appState
-        AppUserDefaults.selectedProject = name
-        weakAppState?[\.routing.masterView.selectedProject] = name
+    func setSelectedProject(project: Project, selectedProject: Binding<String>) {
+        selectedProject.wrappedValue = project.name
+    }
+    
+    func toggleFullScreen(fullScreen: Binding<Bool>) {
+        fullScreen.wrappedValue.toggle()
     }
 }
 
@@ -65,13 +76,15 @@ struct StubProjectsInteractor: ProjectsInteractor {
         return .cancelled
     }
     
-    func load(projectDetails: Binding<Loadable<ProjectDetails>>, project: Project)  -> AnyCancellable {
+    func load(name: String, projectDetails: Binding<Loadable<ProjectDetails>>) -> AnyCancellable {
+        .cancelled
+    }
+    
+    func addProject(name: String, selectedProject: Binding<String>) -> AnyCancellable {
         return .cancelled
     }
     
-    func addProject(name: String) -> AnyCancellable {
-        return .cancelled
-    }
+    func setSelectedProject(project: Project, selectedProject: Binding<String>) { }
     
-    func setSelectedProject(name: String) { }
+    func toggleFullScreen(fullScreen: Binding<Bool>) { }
 }

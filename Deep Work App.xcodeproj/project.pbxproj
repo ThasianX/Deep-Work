@@ -280,8 +280,8 @@
 			children = (
 				1EDB3C9B23D65AB600258814 /* RootView.swift */,
 				1E5A30C323D7EED100BA79A0 /* HomeView.swift */,
-				1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */,
 				1E7D34D323DD1A3500CA6BC5 /* ProjectMasterView.swift */,
+				1EAC7AC423DAA6C500DC3E8C /* ProjectDetailsView.swift */,
 				1E08344F23DBD9E60095EE4D /* AddProjectView.swift */,
 			);
 			path = Screens;

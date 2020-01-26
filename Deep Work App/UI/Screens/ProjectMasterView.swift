@@ -11,6 +11,8 @@ import Combine
 
 struct ProjectMasterView: View {
     @Environment(\.injected) private var injected: DIContainer
+    @Binding var selectedProject: String
+    
     @State private var routingState = Routing.init()
     @State private var projectsStatus: Loadable<[Project]> = .notRequested
     private var routingBinding: Binding<Routing> {
@@ -61,8 +63,13 @@ private extension ProjectMasterView {
     
     func addProject(name: String) {
         injected.interactors.projectsInteractor
-            .addProject(name: name)
+            .addProject(name: name, selectedProject: $selectedProject)
             .store(in: cancelBag)
+    }
+    
+    func setSelectedProject(project: Project) {
+        injected.interactors.projectsInteractor
+            .setSelectedProject(project: project, selectedProject: $selectedProject)
     }
 }
 
@@ -94,7 +101,12 @@ private extension ProjectMasterView {
 private extension ProjectMasterView {
     func loadedView(_ projects: [Project]) -> some View {
         List(projects) { project in
-            Text("\(project.name)")
+            Button(action: {
+                self.setSelectedProject(project: project)
+            }) {
+                    Text(project.name)
+                        .background(self.selectedProject == project.name ? Color.blue : nil)
+            }
         }
         .sheet(isPresented: routingBinding.addProjectSheet, content: { self.modalAddProjectView() })
     }
@@ -107,8 +119,6 @@ private extension ProjectMasterView {
 // MARK: - Routing
 extension ProjectMasterView {
     struct Routing: Equatable {
-        var selectedProject: String = AppUserDefaults.selectedProject
-        
         var addProjectSheet: Bool = false
     }
 }
@@ -126,6 +136,6 @@ private extension ProjectMasterView {
 
 struct ProjectMasterView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectMasterView()
+        ProjectMasterView(selectedProject: .constant(""))
     }
 }

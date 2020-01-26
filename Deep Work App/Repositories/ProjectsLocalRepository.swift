@@ -11,7 +11,8 @@ import Combine
 
 protocol ProjectsLocalRepository {
     func loadProjects() -> AnyPublisher<[Project], Never>
-    func addProject(name: String)
+    func addProject(name: String) -> Project
+    func getProject(name: String) -> [Project]
 }
 
 struct RealProjectsLocalRepository: ProjectsLocalRepository {
@@ -19,7 +20,12 @@ struct RealProjectsLocalRepository: ProjectsLocalRepository {
         return Just(Project.allInOrder()).eraseToAnyPublisher()
     }
     
-    func addProject(name: String) {
-        Project.createProject(name: name)
+    func addProject(name: String) -> Project{
+        return Project.createProject(name: name)
+    }
+    
+    func getProject(name: String) -> [Project] {
+        let predicate = NSPredicate(format: "name == %@", name)
+        return CoreDataDataSource<Project>(predicate: predicate).fetchedObjects
     }
 }

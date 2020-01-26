@@ -48,7 +48,7 @@ public class Project: NSManagedObject {
         guard let tasks = self.tasks as? Set<Task> else {
             return []
         }
-        return tasks.sorted { $0.createdAt < $1.createdAt }
+        return tasks.sorted { $0.createdAt > $1.createdAt }
     }
     
     class func newProject() -> Project {
@@ -86,4 +86,8 @@ public class Project: NSManagedObject {
     public func delete() {
         CoreData.stack.context.delete(self)
     }
+}
+
+extension Project {
+    static let stub = Project.newProject()
 }

@@ -7,15 +7,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ProjectDetailsView: View {
     @Environment(\.injected) private var injected: DIContainer
     @State private var projectDetails: Loadable<ProjectDetails>
-    let project: Project
+    
+    @Binding var name: String
     private let cancelBag = CancelBag()
     
-    init(project: Project, projectDetails: Loadable<ProjectDetails> = .notRequested) {
-        self.project = project
+    init(name: Binding<String>, projectDetails: Loadable<ProjectDetails> = .notRequested) {
+        self._name = name
         self._projectDetails = .init(initialValue: projectDetails)
     }
     
@@ -23,9 +25,6 @@ struct ProjectDetailsView: View {
         VStack(spacing: 0) {
             content
             Spacer()
-        }
-        .onAppear {
-            self.setSelectedProject()
         }
     }
     
@@ -43,13 +42,8 @@ struct ProjectDetailsView: View {
 private extension ProjectDetailsView {
     func loadProjectDetails() {
         injected.interactors.projectsInteractor
-            .load(projectDetails: $projectDetails, project: project)
+            .load(name: name, projectDetails: $projectDetails)
             .store(in: cancelBag)
-    }
-    
-    func setSelectedProject() {
-        injected.interactors.projectsInteractor
-            .setSelectedProject(name: project.name)
     }
 }
 
@@ -80,15 +74,21 @@ private extension ProjectDetailsView {
 // MARK: - Displaying Content
 private extension ProjectDetailsView {
     func loadedView(_ projectDetails: ProjectDetails) -> some View {
-        Text(project.name)
-        //        List(projectDetails.completedTasks) { task in
-        //            Text("\(task.name)")
-        //        }
+        List(projectDetails.completedTasks) { task in
+            Text("\(task.name)")
+        }
+    }
+}
+
+// MARK: - State Updates
+private extension ProjectDetailsView {
+    var routingUpdate: AnyPublisher<ProjectMasterView.Routing, Never> {
+        injected.appState.updates(for: \.routing.masterView)
     }
 }
 
 struct ProjectDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectDetailsView(project: Project.previewProjects().first!, projectDetails: .loaded(.mock)).inject(.preview)
+        ProjectDetailsView(name: .constant(Project.previewProjects().first!.name), projectDetails: .loaded(.mock)).inject(.preview)
     }
 }

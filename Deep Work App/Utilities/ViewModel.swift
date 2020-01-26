@@ -17,6 +17,12 @@ protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == V
     func trigger(_ input: Input)
 }
 
+extension AnyViewModel: Identifiable where State: Identifiable {
+    var id: State.ID {
+        state.id
+    }
+}
+
 @dynamicMemberLookup
 final class AnyViewModel<State, Input>: ViewModel {
     // MARK: Stored Properties
@@ -49,3 +55,4 @@ final class AnyViewModel<State, Input>: ViewModel {
         self.wrappedTrigger = viewModel.trigger
     }
 }
+

@@ -10,131 +10,87 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @EnvironmentObject
-    private var viewModel: AnyViewModel<HomeState, HomeInput>
-    
-    
-    
-    private let cancelBag = CancelBag()
+    @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
     
     var body: some View {
-        VStack {
-            self.header
-            NavigationView {
-                self.content.navigationBarTitle("Projects", displayMode: .inline)
-                    .navigationBarItems(
-                        trailing: AddView(show: routingBinding.addProjectSheet)
-                )
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                self.header(masterWidth: geometry.size.width / 3.5, detailWidth:  geometry.size.width - (geometry.size.width / 3.5))
+                    .frame(maxHeight: 60)
+                
+                HStack(spacing: 0) {
+                    if !self.viewModel.fullScreen {
+                        MasterView(currentProject: self.viewModel.currentProject, onCommit: self.setCurrentProject)
+                            .frame(width: geometry.size.width / 3.5)
+                            .environmentObject(self.viewModel.master)
+                    }
+                    
+                    DetailView()
+                        .environmentObject(self.viewModel.detail)
+                }
             }
-            .onReceive(projectsUpdate) { self.projectsStatus = $0 }
-            .onReceive(routingUpdate) { self.routingState = $0 }
-        }
-    }
-    
-    private var header: some View {
-        HStack {
-            Image(systemName: "gear").imageScale(.large)
-            Spacer()
-            Image(systemName: "gear").imageScale(.large)
-        }
-        .padding()
-    }
-    
-    private var content: AnyView {
-        switch projectsStatus {
-        case .notRequested: return AnyView(notRequestedView)
-        case let .isLoading(last): return AnyView(loadingView(last))
-        case let .loaded(projects): return AnyView(loadedView(projects))
-        case let .failed(error): return AnyView(failedView(error))
         }
     }
 }
 
 // MARK: - Side Effects
 private extension HomeView {
-    func loadProjects() {
-        injected.interactors.projectsInteractor
-            .loadProjects()
-            .store(in: cancelBag)
-    }
-    
-    func addProject(name: String) {
-        injected.interactors.projectsInteractor
-            .addProject(name: name)
-            .store(in: cancelBag)
+    func setCurrentProject(project: Project) {
+        viewModel.trigger(.setCurrentProject(project))
     }
 }
 
-// MARK: - Loading Content
+// MARK: - Displaying Content
 private extension HomeView {
-    var notRequestedView: some View {
-        Text("").onAppear {
-            self.loadProjects()
-        }
-    }
-    
-    func loadingView(_ previouslyLoaded: [Project]?) -> some View {
-        VStack {
-            ActivityIndicator().padding()
-            previouslyLoaded.map {
-                loadedView($0)
+    func header(masterWidth: CGFloat, detailWidth: CGFloat) -> some View {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                if !viewModel.state.fullScreen {
+                    leadingMenu
+                        .padding()
+                        .frame(width: masterWidth)
+                    
+                    Divider()
+                }
+                
+                trailingMenu
+                    .padding()
             }
+            Divider()
         }
     }
     
-    func failedView(_ error: Error) -> some View {
-        ErrorView(error: error, retryAction: {
-            self.loadProjects()
-        })
+    var leadingMenu: some View {
+        HStack {
+            Image(systemName: "gear").imageScale(.large)
+            Spacer()
+            Image(systemName: "gear").imageScale(.large)
+        }
     }
-}
-
-// MARK: - Displaying content
-private extension HomeView {
-    func loadedView(_ projects: [Project]) -> some View {
-        List(projects) { project in
-            NavigationLink(destination: self.detailsView(project: project),
-                           tag: project.name,
-                           selection: self.routingBinding.selectedProject) {
-                            Text("\(project.name)")
+    
+    var trailingMenu: some View {
+        HStack {
+            Button(action: {
+                withAnimation {
+                    self.viewModel.trigger(.toggleFullScreen)
+                }
+            }) {
+                Image(systemName: viewModel.state.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
             }
+            Text(viewModel.state.currentProject.name)
+                .font(.system(size: 20))
+                .bold()
+            Spacer()
+            Image(systemName: "pencil.circle").imageScale(.large)
         }
-        .sheet(isPresented: routingBinding.addProjectSheet, content: { self.modalAddProjectView() })
-    }
-    
-    func detailsView(project: Project) -> some View {
-        ProjectDetailsView(project: project)
-    }
-    
-    func modalAddProjectView() -> some View {
-        AddProjectView(show: routingBinding.addProjectSheet, existingProject: nil, onCommit: addProject)
     }
 }
 
-// MARK: - Routing
-extension HomeView {
-    struct Routing: Equatable {
-        var selectedProject: String? = AppUserDefaults.selectedProject
-        
-        var addProjectSheet: Bool = false
-    }
-}
-
-// MARK: - State Updates
-private extension HomeView {
-    var routingUpdate: AnyPublisher<Routing, Never> {
-        injected.appState.updates(for: \.routing.homeView)
-    }
-    
-    var projectsUpdate: AnyPublisher<Loadable<[Project]>, Never> {
-        injected.appState.updates(for: \.userData.projects)
-    }
-}
 
 #if DEBUG
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        let view = HomeView().inject(.preview)
+        let view = HomeView()
         return view
     }
 }

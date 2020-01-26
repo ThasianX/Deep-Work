@@ -40,3 +40,7 @@ extension Project {
     @NSManaged public func removeFromTasks(_ values: NSSet)
 
 }
+
+extension Project {
+    static let stub = Project.newProject()
+}

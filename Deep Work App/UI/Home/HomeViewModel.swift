@@ -9,31 +9,38 @@
 import SwiftUI
 
 struct HomeState {
-    @UserDefault(Constants.UserDefaults.selectedProject, defaultValue: "")
-    var selectedProject: String
+    @UserDefault(Constants.UserDefaults.selectedProject, defaultValue: .stub)
+    var currentProject: Project
     
     var fullScreen: Bool
+    
+    var master: AnyViewModel<MasterState, MasterInput>
+    var detail: AnyViewModel<DetailState, DetailInput>
 }
 
 enum HomeInput {
     case toggleFullScreen
-    case setSelectedProject(String)
+    case setCurrentProject(Project)
 }
 
 class HomeViewModel: ViewModel {
-    @Published
-    var state: HomeState
+    @Published var state: HomeState
     
-    init() {
-        self.state = HomeState(fullScreen: false)
+    init(projectService: ProjectService) {
+        self.state = HomeState(
+            fullScreen: false,
+            master: AnyViewModel(MasterViewModel(projectService: projectService)),
+            detail: AnyViewModel(DetailViewModel(project: .stub, projectService: projectService))
+        )
     }
     
     func trigger(_ input: HomeInput) {
         switch input {
         case .toggleFullScreen:
             state.fullScreen.toggle()
-        case let .setSelectedProject(project):
-            state.selectedProject = project
+        case let .setCurrentProject(project):
+            print("\(project)")
+            state.currentProject = project
         }
     }
 }

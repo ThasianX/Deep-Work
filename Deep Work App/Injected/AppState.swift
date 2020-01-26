@@ -24,6 +24,7 @@ extension AppState {
 extension AppState {
     struct ViewRouting: Equatable {
         var homeView = HomeView.Routing()
+        var masterView = ProjectMasterView.Routing()
     }
 }
 

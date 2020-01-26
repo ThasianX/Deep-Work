@@ -21,25 +21,11 @@ struct ProjectDetailsView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            header
             content
             Spacer()
         }
-        .hideNavigationBar()
-    }
-    
-    private var header: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text(project.name)
-                    .font(.system(size: 20))
-                    .bold()
-                Spacer()
-                Image(systemName: "pencil.circle").imageScale(.large)
-            }
-            .padding(leading: 20, trailing: 20, top: 10, bottom: 10)
-            
-            CustomDivider()
+        .onAppear {
+            self.setSelectedProject()
         }
     }
     

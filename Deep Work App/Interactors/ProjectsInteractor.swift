@@ -56,7 +56,7 @@ struct RealProjectsInteractor: ProjectsInteractor {
     func setSelectedProject(name: String) {
         weak var weakAppState = appState
         AppUserDefaults.selectedProject = name
-        weakAppState?[\.routing.homeView.selectedProject] = name
+        weakAppState?[\.routing.masterView.selectedProject] = name
     }
 }
 

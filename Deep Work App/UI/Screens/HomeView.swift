@@ -12,7 +12,6 @@ import Combine
 struct HomeView: View {
     @Environment(\.injected) private var injected: DIContainer
     @State private var routingState = Routing.init()
-    @State private var projectsStatus: Loadable<[Project]> = .notRequested
     private var routingBinding: Binding<Routing> {
         $routingState.dispatched(to: injected.appState, \.routing.homeView)
     }
@@ -20,120 +19,81 @@ struct HomeView: View {
     private let cancelBag = CancelBag()
     
     var body: some View {
-        NavigationView {
+        GeometryReader { geometry in
             VStack(spacing: 0) {
-                self.header
-                self.masterHeader
-                self.content
-                Spacer()
+                self.header(masterWidth: geometry.size.width / 3.5, detailWidth:  geometry.size.width - (geometry.size.width / 3.5))
+                    .frame(maxHeight: 60)
+                HStack {
+                    if !self.routingState.fullScreen {
+                        ProjectMasterView()
+                            .frame(width: geometry.size.width / 3.5)
+                    }
+                    
+                    Rectangle()
+                        .background(Color.black)
+                        .frame(width: self.routingState.fullScreen ? geometry.size.width : geometry.size.width - (geometry.size.width / 3.5))
+                }
             }
-            .hideNavigationBar()
-            .onReceive(projectsUpdate) { self.projectsStatus = $0 }
-            .onReceive(routingUpdate) { self.routingState = $0 }
         }
     }
     
-    private var header: some View {
-        VStack {
+    func header(masterWidth: CGFloat, detailWidth: CGFloat) -> some View {
+        VStack(spacing: 0) {
             HStack {
-                Image(systemName: "gear").imageScale(.large)
-                Spacer()
-                Image(systemName: "gear").imageScale(.large)
+                if !routingState.fullScreen {
+                    HStack {
+                        Image(systemName: "gear").imageScale(.large)
+                        Spacer()
+                        Image(systemName: "gear").imageScale(.large)
+                    }
+                    .padding()
+                    .frame(width: masterWidth)
+                    
+                    Divider()
+                }
+                
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            self.routingState.fullScreen.toggle()
+                        }
+                    }) {
+                        Image(systemName: routingState.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
+                    }
+                    Text(injected.appState.value.routing.masterView.selectedProject)
+                        .font(.system(size: 20))
+                        .bold()
+                    Spacer()
+                    Image(systemName: "pencil.circle").imageScale(.large)
+                }
+                .padding()
+                .frame(width: routingState.fullScreen ? masterWidth + detailWidth : detailWidth)
             }
-            .padding(leading: 20, trailing: 20, top: 13, bottom: 10)
-            
-            CustomDivider()
-        }
-    }
-    
-    private var masterHeader: some View {
-        HStack {
-            Text("Projects")
-                .font(.headline)
-            Spacer()
-            AddView(show: routingBinding.addProjectSheet)
-        }
-        .padding()
-        .background(Color.secondary.colorInvert())
-    }
-    
-    private var content: AnyView {
-        switch projectsStatus {
-        case .notRequested: return AnyView(notRequestedView)
-        case let .isLoading(last): return AnyView(loadingView(last))
-        case let .loaded(projects): return AnyView(loadedView(projects))
-        case let .failed(error): return AnyView(failedView(error))
+            Divider()
         }
     }
 }
 
 // MARK: - Side Effects
 private extension HomeView {
-    func loadProjects() {
-        injected.interactors.projectsInteractor
-            .loadProjects()
-            .store(in: cancelBag)
-    }
     
-    func addProject(name: String) {
-        injected.interactors.projectsInteractor
-            .addProject(name: name)
-            .store(in: cancelBag)
-    }
 }
 
 // MARK: - Loading Content
 private extension HomeView {
-    var notRequestedView: some View {
-        Text("").onAppear {
-            self.loadProjects()
-        }
-    }
-    
-    func loadingView(_ previouslyLoaded: [Project]?) -> some View {
-        VStack {
-            ActivityIndicator().padding()
-            previouslyLoaded.map {
-                loadedView($0)
-            }
-        }
-    }
-    
-    func failedView(_ error: Error) -> some View {
-        ErrorView(error: error, retryAction: {
-            self.loadProjects()
-        })
-    }
 }
 
 // MARK: - Displaying content
 private extension HomeView {
-    func loadedView(_ projects: [Project]) -> some View {
-        List(projects) { project in
-            NavigationLink(destination: self.detailsView(project: project),
-                           tag: project.name,
-                           selection: self.routingBinding.selectedProject) {
-                            Text("\(project.name)")
-            }
-        }
-        .sheet(isPresented: routingBinding.addProjectSheet, content: { self.modalAddProjectView() })
-    }
-    
     func detailsView(project: Project) -> some View {
         ProjectDetailsView(project: project)
-    }
-    
-    func modalAddProjectView() -> some View {
-        AddProjectView(show: routingBinding.addProjectSheet, existingProject: nil, onCommit: addProject)
     }
 }
 
 // MARK: - Routing
 extension HomeView {
     struct Routing: Equatable {
-        var selectedProject: String? = AppUserDefaults.selectedProject
-        
-        var addProjectSheet: Bool = false
+        var fullScreen: Bool = false
     }
 }
 

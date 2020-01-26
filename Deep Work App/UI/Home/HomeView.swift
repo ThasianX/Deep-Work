@@ -10,12 +10,10 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @Environment(\.injected) private var injected: DIContainer
-    @State private var routingState = Routing.init()
-    @State private var projectsStatus: Loadable<[Project]> = .notRequested
-    private var routingBinding: Binding<Routing> {
-        $routingState.dispatched(to: injected.appState, \.routing.homeView)
-    }
+    @EnvironmentObject
+    private var viewModel: AnyViewModel<HomeState, HomeInput>
+    
+    
     
     private let cancelBag = CancelBag()
     

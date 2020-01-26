@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct HomeState {
-    @UserDefault(Constants.UserDefaults.selectedProject, defaultValue: .stub)
-    var currentProject: Project
+    @UserDefault(Constants.UserDefaults.currentProject, defaultValue: "")
+    var currentProject: String
     
     var fullScreen: Bool
     
@@ -27,10 +27,16 @@ class HomeViewModel: ViewModel {
     @Published var state: HomeState
     
     init(projectService: ProjectService) {
+        let currentProject = UserDefaults.standard.string(forKey: Constants.UserDefaults.currentProject) ?? ""
+        
+        func setCurrentProject(project: Project) {
+            state.currentProject = project.name
+        }
+        
         self.state = HomeState(
             fullScreen: false,
             master: AnyViewModel(MasterViewModel(projectService: projectService)),
-            detail: AnyViewModel(DetailViewModel(project: .stub, projectService: projectService))
+            detail: AnyViewModel(DetailViewModel(project: projectService.load(name: currentProject), projectService: projectService))
         )
     }
     
@@ -39,8 +45,7 @@ class HomeViewModel: ViewModel {
         case .toggleFullScreen:
             state.fullScreen.toggle()
         case let .setCurrentProject(project):
-            print("\(project)")
-            state.currentProject = project
+            state.currentProject = project.name
         }
     }
 }

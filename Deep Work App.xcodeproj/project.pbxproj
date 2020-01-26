@@ -11,7 +11,6 @@
 		1E08345023DBD9E60095EE4D /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E08344F23DBD9E60095EE4D /* AddProjectView.swift */; };
 		1E20418A23DB486600AB0F2C /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20418923DB486600AB0F2C /* ProjectDetails.swift */; };
 		1E5A30C423D7EED100BA79A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5A30C323D7EED100BA79A0 /* HomeView.swift */; };
-		1E7D34CC23DC8D7600CA6BC5 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */; };
 		1E7D34CE23DCA0C300CA6BC5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */; };
 		1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */; };
 		1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */; };
@@ -59,7 +58,6 @@
 		1E08344F23DBD9E60095EE4D /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		1E20418923DB486600AB0F2C /* ProjectDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
 		1E5A30C323D7EED100BA79A0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */,
-				1E7D34CB23DC8D7600CA6BC5 /* AppUserDefaults.swift */,
 				1E7D34CD23DCA0C300CA6BC5 /* Constants.swift */,
 				1EE4B05A23DDD838008360F0 /* ViewModel.swift */,
 				1EE4B06023DDE9F8008360F0 /* ProjectService.swift */,
@@ -386,7 +383,6 @@
 				1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */,
 				1E08344E23DBD7E10095EE4D /* AddView.swift in Sources */,
 				1EAC7AC523DAA6C500DC3E8C /* DetailView.swift in Sources */,
-				1E7D34CC23DC8D7600CA6BC5 /* AppUserDefaults.swift in Sources */,
 				1E7D34CE23DCA0C300CA6BC5 /* Constants.swift in Sources */,
 				1EE4B05B23DDD838008360F0 /* ViewModel.swift in Sources */,
 				1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */,

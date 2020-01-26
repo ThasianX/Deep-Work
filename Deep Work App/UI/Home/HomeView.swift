@@ -77,7 +77,7 @@ private extension HomeView {
             }) {
                 Image(systemName: viewModel.state.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
             }
-            Text(viewModel.state.currentProject.name)
+            Text(viewModel.state.currentProject)
                 .font(.system(size: 20))
                 .bold()
             Spacer()

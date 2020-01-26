@@ -13,7 +13,7 @@ struct MasterView: View {
     
     @State private var addProjectSheet: Bool = false
     
-    let currentProject: Project
+    let currentProject: String
     let onCommit: (Project) -> Void
     
     var body: some View {
@@ -51,7 +51,7 @@ extension MasterView {
                 self.onCommit(viewModel.project)
             }) {
                 Text(viewModel.project.name)
-                    .background(self.currentProject == viewModel.project ? Color.blue : nil)
+                    .background(self.currentProject == viewModel.project.name ? Color.blue : nil)
             }
         }
         .sheet(isPresented: $addProjectSheet, content: { self.modalAddProjectView() })
@@ -64,7 +64,7 @@ extension MasterView {
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        MasterView(currentProject: .stub, onCommit: {_ in})
+        MasterView(currentProject: "", onCommit: { _ in })
     }
 }
 
@@ -83,10 +83,9 @@ enum MasterInput {
 }
 
 class MasterViewModel: ViewModel {
-    @Published
-    var state: MasterState
+    @Published var state: MasterState
     
-    let projectService: ProjectService
+    private let projectService: ProjectService
     
     init(projectService: ProjectService) {
         self.projectService = projectService

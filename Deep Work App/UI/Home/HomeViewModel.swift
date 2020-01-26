@@ -15,13 +15,13 @@ struct HomeState {
     var fullScreen: Bool
     var projects: [Project]
     
-    var currentProject: Project
-    var projectDetails: ProjectDetails
+    var currentProject: Project?
+    var projectDetails: ProjectDetails?
 }
 
 enum HomeInput {
     case toggleFullScreen
-    case setCurrentProject(Project)
+    case setCurrentProject(String)
     case addProject(String)
     case deleteProject(Project)
 }
@@ -36,10 +36,12 @@ class HomeViewModel: ViewModel {
         self.state = HomeState(
             fullScreen: false,
             projects: projectService.loadProjects(),
-            currentProject: .stub,
-            projectDetails: .stub)
+            currentProject: nil,
+            projectDetails: nil)
         self.state.currentProject = projectService.load(name: state.currentProjectName)
-        self.state.projectDetails = projectService.projectDetails(for: state.currentProject)
+        if let currentProject = state.currentProject {
+            self.state.projectDetails = projectService.projectDetails(for: currentProject)
+        }
     }
     
     func fetchProjects() -> [Project] {
@@ -50,24 +52,27 @@ class HomeViewModel: ViewModel {
         switch input {
         case .toggleFullScreen:
             state.fullScreen.toggle()
-        case let .setCurrentProject(project):
-            state.currentProjectName = project.name
+            
+        case let .setCurrentProject(name):
+            state.currentProjectName = name
+            
         case let .addProject(name):
             let project = projectService.addProject(name: name)
             state.projects = fetchProjects()
-            trigger(.setCurrentProject(project))
+            trigger(.setCurrentProject(project.name))
+            
         case let .deleteProject(project):
             let project = projectService.remove(project: project)
             state.projects = fetchProjects()
             let index = state.projects.firstIndex(of: project)
             if let index = index {
-                let precedingProject: Project
+                let precedingProjectName: String
                 if index > 0 {
-                    precedingProject = state.projects[index - 1]
+                    precedingProjectName = state.projects[index - 1].name
                 } else {
-                    precedingProject = .stub
+                    precedingProjectName = ""
                 }
-                trigger(.setCurrentProject(precedingProject))
+                trigger(.setCurrentProject(precedingProjectName))
             }
         }
     }

@@ -42,5 +42,5 @@ extension Project {
 }
 
 extension Project {
-    static let stub = Project.newProject()
+    static let stub = Project()
 }

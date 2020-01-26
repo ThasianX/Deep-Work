@@ -16,7 +16,7 @@ protocol ProjectService {
     
     func remove(project: Project) -> Project
     
-    func load(name: String) -> Project
+    func load(name: String) -> Project?
     
     func projectDetails(for project: Project) -> ProjectDetails
 }
@@ -34,11 +34,11 @@ struct LocalProjectService: ProjectService {
         return project.delete()
     }
     
-    func load(name: String) -> Project {
+    func load(name: String) -> Project? {
         let predicate = NSPredicate(format: "name == %@", name)
         let fetched = CoreDataDataSource<Project>(predicate: predicate).fetchedObjects
         
-        return fetched.first ?? .stub
+        return fetched.first ?? nil
     }
     
     func projectDetails(for project: Project) -> ProjectDetails {

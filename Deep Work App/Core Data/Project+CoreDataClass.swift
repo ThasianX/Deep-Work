@@ -12,7 +12,6 @@ import CoreData
 
 @objc(Project)
 public class Project: NSManagedObject {
-    
     class func allInOrder() -> [Project] {
         let datasource = CoreDataDataSource<Project>()
         return datasource.fetch()
@@ -86,6 +85,6 @@ public class Project: NSManagedObject {
     public func delete() -> Project {
         let project = self
         CoreData.stack.context.delete(self)
-        return project 
+        return project
     }
 }

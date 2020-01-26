@@ -16,7 +16,7 @@ struct DetailView: View {
     }
     
     var content: some View {
-        completedTasks
+        completedTasks(completedTasks: viewModel.projectDetails?.completedTasks ?? [])
     }
 }
 
@@ -27,8 +27,8 @@ private extension DetailView {
 
 // MARK: - Displaying Content
 private extension DetailView {
-    var completedTasks: some View {
-        List(viewModel.projectDetails.completedTasks) { task in
+    func completedTasks(completedTasks: [Task]) -> some View {
+        List(completedTasks) { task in
             Text("\(task.name)")
         }
     }

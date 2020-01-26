@@ -32,9 +32,6 @@ struct HomeView: View {
 
 // MARK: - Side Effects
 private extension HomeView {
-    func setCurrentProject(project: Project) {
-        viewModel.trigger(.setCurrentProject(project))
-    }
 }
 
 // MARK: - Displaying Content

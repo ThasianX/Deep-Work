@@ -12,7 +12,3 @@ struct ProjectDetails: Equatable {
     let currentTask: Task?
     let completedTasks: [Task]
 }
-
-extension ProjectDetails {
-    static let stub = ProjectDetails(currentTask: nil, completedTasks: [])
-}

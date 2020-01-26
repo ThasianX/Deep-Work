@@ -28,7 +28,7 @@ private extension MasterView {
     }
     
     func select(project: Project) {
-        viewModel.trigger(.setCurrentProject(project))
+        viewModel.trigger(.setCurrentProject(project.name))
     }
 }
 

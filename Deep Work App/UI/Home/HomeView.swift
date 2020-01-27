@@ -20,13 +20,10 @@ struct HomeView: View {
                 
                 HStack(spacing: 0) {
                     if !self.viewModel.fullScreen {
-                        MasterView(currentProject: self.viewModel.currentProject, onCommit: self.setCurrentProject)
+                        MasterView()
                             .frame(width: geometry.size.width / 3.5)
-                            .environmentObject(self.viewModel.master)
                     }
-                    
                     DetailView()
-                        .environmentObject(self.viewModel.detail)
                 }
             }
         }
@@ -35,9 +32,6 @@ struct HomeView: View {
 
 // MARK: - Side Effects
 private extension HomeView {
-    func setCurrentProject(project: Project) {
-        viewModel.trigger(.setCurrentProject(project))
-    }
 }
 
 // MARK: - Displaying Content
@@ -77,7 +71,7 @@ private extension HomeView {
             }) {
                 Image(systemName: viewModel.state.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
             }
-            Text(viewModel.state.currentProject)
+            Text(viewModel.state.currentProjectName)
                 .font(.system(size: 20))
                 .bold()
             Spacer()

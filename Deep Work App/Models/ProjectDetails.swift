@@ -12,7 +12,3 @@ struct ProjectDetails: Equatable {
     let currentTask: Task?
     let completedTasks: [Task]
 }
-
-extension ProjectDetails {
-    static let mock = ProjectDetails(currentTask: nil, completedTasks: Project.previewProjects().first!.allTasks)
-}

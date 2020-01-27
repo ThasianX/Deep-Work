@@ -9,43 +9,71 @@
 import SwiftUI
 
 struct HomeState {
-    @UserDefault(Constants.UserDefaults.currentProject, defaultValue: "")
-    var currentProject: String
+    @UserDefault(Constants.UserDefaults.currentProjectName, defaultValue: "")
+    var currentProjectName: String
     
     var fullScreen: Bool
+    var projects: [Project]
     
-    var master: AnyViewModel<MasterState, MasterInput>
-    var detail: AnyViewModel<DetailState, DetailInput>
+    var currentProject: Project?
+    var projectDetails: ProjectDetails?
 }
 
 enum HomeInput {
     case toggleFullScreen
-    case setCurrentProject(Project)
+    case setCurrentProject(String)
+    case addProject(String)
+    case deleteProject(Project)
 }
 
 class HomeViewModel: ViewModel {
     @Published var state: HomeState
     
+    private let projectService: ProjectService
+    
     init(projectService: ProjectService) {
-        let currentProject = UserDefaults.standard.string(forKey: Constants.UserDefaults.currentProject) ?? ""
-        
-        func setCurrentProject(project: Project) {
-            state.currentProject = project.name
-        }
-        
+        self.projectService = projectService
         self.state = HomeState(
             fullScreen: false,
-            master: AnyViewModel(MasterViewModel(projectService: projectService)),
-            detail: AnyViewModel(DetailViewModel(project: projectService.load(name: currentProject), projectService: projectService))
-        )
+            projects: projectService.loadProjects(),
+            currentProject: nil,
+            projectDetails: nil)
+        self.state.currentProject = projectService.load(name: state.currentProjectName)
+        if let currentProject = state.currentProject {
+            self.state.projectDetails = projectService.projectDetails(for: currentProject)
+        }
+    }
+    
+    func fetchProjects() -> [Project] {
+        projectService.loadProjects()
     }
     
     func trigger(_ input: HomeInput) {
         switch input {
         case .toggleFullScreen:
             state.fullScreen.toggle()
-        case let .setCurrentProject(project):
-            state.currentProject = project.name
+            
+        case let .setCurrentProject(name):
+            state.currentProjectName = name
+            
+        case let .addProject(name):
+            let project = projectService.addProject(name: name)
+            state.projects = fetchProjects()
+            trigger(.setCurrentProject(project.name))
+            
+        case let .deleteProject(project):
+            let project = projectService.remove(project: project)
+            state.projects = fetchProjects()
+            let index = state.projects.firstIndex(of: project)
+            if let index = index {
+                let precedingProjectName: String
+                if index > 0 {
+                    precedingProjectName = state.projects[index - 1].name
+                } else {
+                    precedingProjectName = ""
+                }
+                trigger(.setCurrentProject(precedingProjectName))
+            }
         }
     }
 }

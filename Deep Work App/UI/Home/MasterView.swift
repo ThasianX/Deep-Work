@@ -9,12 +9,8 @@
 import SwiftUI
 
 struct MasterView: View {
-    @EnvironmentObject private var viewModel: AnyViewModel<MasterState, MasterInput>
-    
+    @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
     @State private var addProjectSheet: Bool = false
-    
-    let currentProject: String
-    let onCommit: (Project) -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -26,14 +22,18 @@ struct MasterView: View {
 }
 
 // MARK: - Side Effects
-extension MasterView {
+private extension MasterView {
     func addProject(name: String) {
         viewModel.trigger(.addProject(name))
+    }
+    
+    func select(project: Project) {
+        viewModel.trigger(.setCurrentProject(project.name))
     }
 }
 
 // MARK: - Displaying Content
-extension MasterView {
+private extension MasterView {
     private var masterHeader: some View {
         HStack {
             Text("Projects")
@@ -46,13 +46,11 @@ extension MasterView {
     }
     
     private var content: some View {
-        List(viewModel.projects) { viewModel in
-            Button(action: {
-                self.onCommit(viewModel.project)
-            }) {
-                Text(viewModel.project.name)
-                    .background(self.currentProject == viewModel.project.name ? Color.blue : nil)
-            }
+        List(viewModel.projects) { project in
+            ProjectListRow(
+                project: project,
+                selected: project.name == self.viewModel.currentProjectName,
+                onClick: self.select)
         }
         .sheet(isPresented: $addProjectSheet, content: { self.modalAddProjectView() })
     }
@@ -62,47 +60,64 @@ extension MasterView {
     }
 }
 
-struct MasterView_Previews: PreviewProvider {
-    static var previews: some View {
-        MasterView(currentProject: "", onCommit: { _ in })
-    }
-}
-
-struct MasterState {
-    var projects: [AnyViewModel<DetailState, DetailInput>]
-}
-
-extension DetailState: Identifiable {
-    var id: Project.ID {
-        project.id
-    }
-}
-
-enum MasterInput {
-    case addProject(String)
-}
-
-class MasterViewModel: ViewModel {
-    @Published var state: MasterState
-    
-    private let projectService: ProjectService
-    
-    init(projectService: ProjectService) {
-        self.projectService = projectService
+private extension MasterView {
+    struct ProjectListRow: View {
+        let project: Project
+        let selected: Bool
+        let onClick: (Project) -> Void
         
-        self.state = MasterState(
-            projects: projectService.loadProjects().map {
-                AnyViewModel(DetailViewModel(project: $0, projectService: projectService))
+        var body: some View {
+            Button(action: {
+                self.onClick(self.project)
+            }) {
+                Text(project.name)
+                    .background(selected ? Color.blue : nil)
             }
-        )
-    }
-    
-    func trigger(_ input: MasterInput) {
-        switch input {
-        case let .addProject(name):
-            let project = Project.createProject(name: name)
-            let viewModel = AnyViewModel(DetailViewModel(project: project, projectService: projectService))
-            state.projects.append(viewModel)
         }
     }
 }
+
+struct MasterView_Previews: PreviewProvider {
+    static var previews: some View {
+        MasterView()
+    }
+}
+
+//struct MasterState {
+//    var projects: [AnyViewModel<DetailState, DetailInput>]
+//}
+//
+//extension DetailState: Identifiable {
+//    var id: Project.ID {
+//        project.id
+//    }
+//}
+//
+//enum MasterInput {
+//    case addProject(String)
+//}
+//
+//class MasterViewModel: ViewModel {
+//    @Published var state: MasterState
+//
+//    private let projectService: ProjectService
+//
+//    init(projectService: ProjectService) {
+//        self.projectService = projectService
+//
+//        self.state = MasterState(
+//            projects: projectService.loadProjects().map {
+//                AnyViewModel(DetailViewModel(project: $0, projectService: projectService))
+//            }
+//        )
+//    }
+//
+//    func trigger(_ input: MasterInput) {
+//        switch input {
+//        case let .addProject(name):
+//            let project = Project.createProject(name: name)
+//            let viewModel = AnyViewModel(DetailViewModel(project: project, projectService: projectService))
+//            state.projects.append(viewModel)
+//        }
+//    }
+//}

@@ -22,6 +22,7 @@ extension Project: Identifiable {
     @NSManaged public var name: String
     @NSManaged public var timeSpent: Double
     @NSManaged public var tasks: NSSet?
+    @NSManaged public var deepWork: NSSet?
 }
 
 // MARK: Generated accessors for tasks
@@ -41,6 +42,19 @@ extension Project {
 
 }
 
+// MARK: Generated accessors for deepWork
 extension Project {
-    static let stub = Project.newProject()
+
+    @objc(addDeepWorkObject:)
+    @NSManaged public func addToDeepWork(_ value: DeepWork)
+
+    @objc(removeDeepWorkObject:)
+    @NSManaged public func removeFromDeepWork(_ value: DeepWork)
+
+    @objc(addDeepWork:)
+    @NSManaged public func addToDeepWork(_ values: NSSet)
+
+    @objc(removeDeepWork:)
+    @NSManaged public func removeFromDeepWork(_ values: NSSet)
+
 }

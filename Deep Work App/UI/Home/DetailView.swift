@@ -7,16 +7,17 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct DetailView: View {
-    @EnvironmentObject private var viewModel: AnyViewModel<DetailState, DetailInput>
+    @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
     
     var body: some View {
         content
     }
     
     var content: some View {
-        completedTasks
+        completedTasks(completedTasks: viewModel.projectDetails?.completedTasks ?? [])
     }
 }
 
@@ -27,52 +28,44 @@ private extension DetailView {
 
 // MARK: - Displaying Content
 private extension DetailView {
-    var completedTasks: some View {
-        List(viewModel.projectDetails.completedTasks) { task in
+    func completedTasks(completedTasks: [Task]) -> some View {
+        List(completedTasks) { task in
             Text("\(task.name)")
         }
     }
+    
 }
 
 struct ProjectDetails_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        let viewModel = AnyViewModel(HomeViewModel(projectService: LocalProjectService()))
+        return DetailView()
+            .environmentObject(viewModel)
     }
 }
 
-struct DetailState {
-    var project: Project
-    var projectDetails: ProjectDetails
-}
-
-enum DetailInput {
-    //    case addTask(Task)
-}
-
-class DetailViewModel: ViewModel {
-    @Published var state: DetailState
-    
-    private let projectService: ProjectService
-    private let project: Project
-    
-    init(project: Project, projectService: ProjectService) {
-        func projectDetails(project: Project) -> ProjectDetails {
-            var tasks = project.allTasks
-            var currentTask: Task? = nil
-            if let latestTask = tasks.first {
-                currentTask = latestTask
-                tasks.removeFirst()
-            }
-            
-            return ProjectDetails(currentTask: currentTask, completedTasks: tasks)
-        }
-        
-        self.projectService = projectService
-        self.project = project
-        self.state = DetailState(project: project, projectDetails: projectDetails(project: project))
-    }
-    
-    func trigger(_ input: DetailInput) {
-        
-    }
-}
+//struct DetailState {
+//    var project: Project
+//    var projectDetails: ProjectDetails
+//}
+//
+//enum DetailInput {
+//    //    case addTask(Task)
+//}
+//
+//class DetailViewModel: ViewModel {
+//    @Published var state: DetailState
+//
+//    private let projectService: ProjectService
+//    private let project: Project
+//
+//    init(project: Project, projectService: ProjectService) {
+//        self.projectService = projectService
+//        self.project = project
+//        self.state = DetailState(project: project, projectDetails: projectService.projectDetails(for: project))
+//    }
+//
+//    func trigger(_ input: DetailInput) {
+//
+//    }
+//}

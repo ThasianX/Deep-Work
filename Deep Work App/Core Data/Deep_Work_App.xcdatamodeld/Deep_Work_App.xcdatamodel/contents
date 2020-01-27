@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DeepWork" representedClassName="DeepWork" syncable="YES">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="601791300" usesScalarValueType="NO"/>
+        <attribute name="time" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="deepWork" inverseEntity="Project"/>
+    </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="archived" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="createdAt" attributeType="Date" defaultDateTimeInterval="601261740" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="timeSpent" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="project" inverseEntity="Task"/>
+        <relationship name="deepWork" toMany="YES" deletionRule="Nullify" destinationEntity="DeepWork" inverseName="project" inverseEntity="DeepWork"/>
+        <relationship name="tasks" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="project" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="complete" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
@@ -16,7 +22,8 @@
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-203.33984375" positionY="68.52734375" width="128" height="118"/>
+        <element name="DeepWork" positionX="-99" positionY="126" width="128" height="88"/>
+        <element name="Project" positionX="-203.33984375" positionY="68.52734375" width="128" height="133"/>
         <element name="Task" positionX="0" positionY="72" width="128" height="133"/>
     </elements>
 </model>

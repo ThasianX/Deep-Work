@@ -33,7 +33,6 @@ private extension DetailView {
             Text("\(task.name)")
         }
     }
-    
 }
 
 struct ProjectDetails_Previews: PreviewProvider {

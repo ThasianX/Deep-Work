@@ -43,11 +43,14 @@ public class Project: NSManagedObject {
     #endif
     
     // MARK: CRUD
-    public var allTasks: [Task] {
-        guard let tasks = self.tasks as? Set<Task> else {
-            return []
-        }
-        return tasks.sorted { $0.createdAt < $1.createdAt }
+    public var allTasks: Set<Task> {
+        guard let tasks = self.tasks as? Set<Task> else { return [] }
+        return tasks
+    }
+    
+    var allDeepWorkSessions: Set<DeepWork> {
+        guard let sessions = self.deepWork as? Set<DeepWork> else { return [] }
+        return sessions
     }
     
     class func newProject() -> Project {

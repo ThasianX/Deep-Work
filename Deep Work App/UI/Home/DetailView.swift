@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct DetailView: View {
     @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
@@ -32,11 +33,14 @@ private extension DetailView {
             Text("\(task.name)")
         }
     }
+    
 }
 
 struct ProjectDetails_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        let viewModel = AnyViewModel(HomeViewModel(projectService: LocalProjectService()))
+        return DetailView()
+            .environmentObject(viewModel)
     }
 }
 

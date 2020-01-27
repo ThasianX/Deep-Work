@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,9 @@
 		1EE4B05D23DDE11E008360F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4B05C23DDE11E008360F0 /* HomeViewModel.swift */; };
 		1EE4B05F23DDE744008360F0 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4B05E23DDE744008360F0 /* MasterView.swift */; };
 		1EE4B06123DDE9F8008360F0 /* ProjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4B06023DDE9F8008360F0 /* ProjectService.swift */; };
+		1EE4B09023DE99E0008360F0 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1EE4B08F23DE99E0008360F0 /* SwiftUICharts */; };
+		1EE4B09723DE9CFF008360F0 /* DeepWork+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4B09323DE9CFF008360F0 /* DeepWork+CoreDataClass.swift */; };
+		1EE4B09823DE9CFF008360F0 /* DeepWork+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE4B09423DE9CFF008360F0 /* DeepWork+CoreDataProperties.swift */; };
 		1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,8 @@
 		1EE4B05C23DDE11E008360F0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1EE4B05E23DDE744008360F0 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		1EE4B06023DDE9F8008360F0 /* ProjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectService.swift; sourceTree = "<group>"; };
+		1EE4B09323DE9CFF008360F0 /* DeepWork+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeepWork+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1EE4B09423DE9CFF008360F0 /* DeepWork+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeepWork+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1EF062F023DA4ED300CB8C07 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE4B09023DE99E0008360F0 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +205,8 @@
 			children = (
 				1EDB3CED23D689A100258814 /* CoreData.swift */,
 				1EDB3CEF23D68A8300258814 /* CoreDataDataSource.swift */,
+				1EE4B09323DE9CFF008360F0 /* DeepWork+CoreDataClass.swift */,
+				1EE4B09423DE9CFF008360F0 /* DeepWork+CoreDataProperties.swift */,
 				1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */,
 				1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */,
 				1EDB3CF623D68E0600258814 /* Task+CoreDataClass.swift */,
@@ -265,6 +273,9 @@
 			dependencies = (
 			);
 			name = "Deep Work App";
+			packageProductDependencies = (
+				1EE4B08F23DE99E0008360F0 /* SwiftUICharts */,
+			);
 			productName = "Deep Work App";
 			productReference = 1EDB3C9123D65AB600258814 /* Deep Work App.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +348,9 @@
 				Base,
 			);
 			mainGroup = 1EDB3C8823D65AB600258814;
+			packageReferences = (
+				1EE4B08E23DE99E0008360F0 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 1EDB3C9223D65AB600258814 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,6 +401,7 @@
 				1EE4B05B23DDD838008360F0 /* ViewModel.swift in Sources */,
 				1EF062F123DA4ED300CB8C07 /* UserDefaultsWrapper.swift in Sources */,
 				1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */,
+				1EE4B09723DE9CFF008360F0 /* DeepWork+CoreDataClass.swift in Sources */,
 				1E08345023DBD9E60095EE4D /* AddProjectView.swift in Sources */,
 				1EDB3CF823D68E0600258814 /* Task+CoreDataClass.swift in Sources */,
 				1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */,
@@ -394,6 +409,7 @@
 				1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */,
 				1EDB3C9723D65AB600258814 /* SceneDelegate.swift in Sources */,
 				1EE4B05F23DDE744008360F0 /* MasterView.swift in Sources */,
+				1EE4B09823DE9CFF008360F0 /* DeepWork+CoreDataProperties.swift in Sources */,
 				1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */,
 				1E20418A23DB486600AB0F2C /* ProjectDetails.swift in Sources */,
 				1EDB3CEE23D689A100258814 /* CoreData.swift in Sources */,
@@ -726,6 +742,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EE4B08E23DE99E0008360F0 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EE4B08F23DE99E0008360F0 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EE4B08E23DE99E0008360F0 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1EDB3C9823D65AB600258814 /* Deep_Work_App.xcdatamodeld */ = {

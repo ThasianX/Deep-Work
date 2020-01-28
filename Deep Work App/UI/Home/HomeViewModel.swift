@@ -12,7 +12,6 @@ struct HomeState {
     @UserDefault(Constants.UserDefaults.currentProjectName, defaultValue: "")
     var currentProjectName: String
     
-    var fullScreen: Bool
     var projects: [Project]
     
     var currentProject: Project?
@@ -20,7 +19,6 @@ struct HomeState {
 }
 
 enum HomeInput {
-    case toggleFullScreen
     case setCurrentProject(String)
     case addProject(String)
     case deleteProject(Project)
@@ -34,7 +32,6 @@ class HomeViewModel: ViewModel {
     init(projectService: ProjectService) {
         self.projectService = projectService
         self.state = HomeState(
-            fullScreen: false,
             projects: projectService.loadProjects(),
             currentProject: nil,
             projectDetails: nil)
@@ -50,9 +47,6 @@ class HomeViewModel: ViewModel {
     
     func trigger(_ input: HomeInput) {
         switch input {
-        case .toggleFullScreen:
-            state.fullScreen.toggle()
-            
         case let .setCurrentProject(name):
             state.currentProjectName = name
             

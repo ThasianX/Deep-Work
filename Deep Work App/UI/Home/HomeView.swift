@@ -11,19 +11,21 @@ import Combine
 
 struct HomeView: View {
     @EnvironmentObject private var viewModel: AnyViewModel<HomeState, HomeInput>
+    @State private var fullScreen: Bool = false
+    @State private var taskViewShown: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 self.header(masterWidth: geometry.size.width / 3.5, detailWidth:  geometry.size.width - (geometry.size.width / 3.5))
-                    .frame(maxHeight: 60)
+                    .frame(height: 60)
                 
                 HStack(spacing: 0) {
-                    if !self.viewModel.fullScreen {
+                    if !self.fullScreen {
                         MasterView()
                             .frame(width: geometry.size.width / 3.5)
                     }
-                    DetailView()
+                    DetailView(taskViewShown: self.$taskViewShown)
                 }
             }
         }
@@ -39,7 +41,7 @@ private extension HomeView {
     func header(masterWidth: CGFloat, detailWidth: CGFloat) -> some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                if !viewModel.state.fullScreen {
+                if !self.fullScreen {
                     leadingMenu
                         .padding()
                         .frame(width: masterWidth)
@@ -66,10 +68,10 @@ private extension HomeView {
         HStack {
             Button(action: {
                 withAnimation {
-                    self.viewModel.trigger(.toggleFullScreen)
+                    self.fullScreen.toggle()
                 }
             }) {
-                Image(systemName: viewModel.state.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
+                Image(systemName: self.fullScreen ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right").imageScale(.large)
             }
             Text(viewModel.state.currentProjectName)
                 .font(.system(size: 20))

@@ -15,6 +15,7 @@
 		1EAC7AC123DA81AC00DC3E8C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */; };
 		1EAC7AC323DA82A800DC3E8C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */; };
 		1EAC7AC523DAA6C500DC3E8C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC7AC423DAA6C500DC3E8C /* DetailView.swift */; };
+		1EBDDFDD23DFC8F100FD602E /* SelectionDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDDFDC23DFC8F100FD602E /* SelectionDial.swift */; };
 		1EC9655B23D6AFB700F08B83 /* Project+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */; };
 		1EC9655C23D6AFB700F08B83 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */; };
 		1EDB3C9523D65AB600258814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB3C9423D65AB600258814 /* AppDelegate.swift */; };
@@ -65,8 +66,10 @@
 		1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1EAC7AC423DAA6C500DC3E8C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1EBDDFDC23DFC8F100FD602E /* SelectionDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionDial.swift; sourceTree = "<group>"; };
 		1EC9655923D6AFB700F08B83 /* Project+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1EC9655A23D6AFB700F08B83 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1ECADB2E23DFF99300CE44D7 /* chartview */ = {isa = PBXFileReference; lastKnownFileType = folder; name = chartview; path = ../../../../../Downloads/chartview; sourceTree = "<group>"; };
 		1EDB3C9123D65AB600258814 /* Deep Work App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Deep Work App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDB3C9423D65AB600258814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EDB3C9623D65AB600258814 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 				1EAC7AC023DA81AC00DC3E8C /* ActivityIndicator.swift */,
 				1EAC7AC223DA82A800DC3E8C /* ErrorView.swift */,
 				1E08344D23DBD7E10095EE4D /* AddView.swift */,
+				1EBDDFDC23DFC8F100FD602E /* SelectionDial.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -172,6 +176,7 @@
 		1EDB3C9323D65AB600258814 /* Deep Work App */ = {
 			isa = PBXGroup;
 			children = (
+				1ECADB2E23DFF99300CE44D7 /* chartview */,
 				1EDB3CD623D6861900258814 /* System */,
 				1E6FBA9D23D94DAB0055DA2F /* Utilities */,
 				1E20418823DB46A900AB0F2C /* Models */,
@@ -416,6 +421,7 @@
 				1EDB3CF023D68A8300258814 /* CoreDataDataSource.swift in Sources */,
 				1EDB3C9A23D65AB600258814 /* Deep_Work_App.xcdatamodeld in Sources */,
 				1EE4B05D23DDE11E008360F0 /* HomeViewModel.swift in Sources */,
+				1EBDDFDD23DFC8F100FD602E /* SelectionDial.swift in Sources */,
 				1EDB3CF923D68E0600258814 /* Task+CoreDataProperties.swift in Sources */,
 				1EE4B06123DDE9F8008360F0 /* ProjectService.swift in Sources */,
 			);
